@@ -2,6 +2,7 @@
 
 import istate;
  /* need LexerStatement Class. */
+import std.algorithm;
 
 class LexState
 {
@@ -29,8 +30,8 @@ class LexState
    string[] arr = state.self();
    int i = 0;
    while (i < aat) {
-    arr.remove(i);
-    i += 1;
+    arr = arr.remove(i);
+    i++;
    }
    return arr;
   }

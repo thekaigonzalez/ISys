@@ -2,7 +2,7 @@
 
 import std.stdio;
 import std.array;
-
+import std.algorithm;
 import istring;
 import ilex;
 import iword;
@@ -36,19 +36,25 @@ public:
  string condition() {
   return ls.self()[1];
  }
- void execute() {
-  if (ls.current() == "IF") { //keys: IF
+ // return the expression if TRUE, if not, return NOTHING
+ string execute() {
+  if (ls.key() == "IF") { //keys: IF
    string condition = ls.next();
    FuncState fs = new FuncState(condition);
    if (fs.ret_func_data()) { //keys: IF FUNCTION()
     string signal = ls.next();
-    if (signal == "DO") { //keys: IF FUNCTION() DO
-     /* hmm... */
-     /* we need to get the rest of the string somehow. */
-     /* maybe using builtin lexer functions w/ istring.d */
-    }
-   }
-  }
+    if (signal == "DO") { //keys: IF FUNCTION() DO (0, 1, 2);
+     /*.. */
+     string[] expr = ls.collect(2); // 0=CONDITION 1...= Expr
+     expr = expr.remove(0); //1...
+     string expression = "";
+     foreach (string constructor; expr) {
+      expression = expression~constructor~" ";
+     }
+     return expression;
+    } else { return "Bad IF Expression"; }
+   } else { return "NOTHING"; }
+  } else { return "NOTHING"; }
  }
 }
 

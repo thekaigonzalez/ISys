@@ -33,6 +33,16 @@ RESERVED_EX return_generated_reserve(string str) {
  return RESERVED_EX.ISYS_NULL;
 }
 
+void gc_eval_machine(string abcdef)
+{
+ if (abcdef == "NOTHING" || abcdef == "NULL") { writeln("Error @ gc_eval_machine():L: wrong evaluation"); }
+ else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_PRINT) {
+  LexState ls = new LexState(abcdef);
+  StringState c = new StringState(ls);
+  writeln(c.outString());
+ }
+}
+
 void gc_machine(string abcdef) {
  // insert a very bad attempt
  if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_PRINT) {
@@ -50,6 +60,7 @@ void gc_machine(string abcdef) {
  else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_IF) {
   // instead of starting a lexer, we start a boolstate.
   BoolState bs = new BoolState(abcdef);
-  
+  if (bs.execute() == "NOTHING") { writeln("ISYS_NULL"); }
+  else { gc_eval_machine(bs.execute()); }
  }
 }
