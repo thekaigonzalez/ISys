@@ -1,0 +1,51 @@
+.\" Kai's Manpage Generator
+.
+.TH "ISYS" "1" "September 2021" "" ""
+.
+.SH "NAME"
+\fBisys\fR \- The ISys Programming language interpreter
+.
+.SH "SYNOPSIS"
+\fBisys\fR \fIoptions\fR
+.
+.SH "DESCRIPTION"
+ISys is a language originally oriented around building scalable, Make\-Like programming language to build real\-time build systems\. ISys is implemented in D\.
+.
+.SS "options"
+\fB\-\-repl, \-r\fR
+.
+.P
+Runs the REPL (read, eval, print, loop)
+.
+.P
+You can run commands line by line in the REPL\. use \fB\-f\fR for files\.
+.
+.P
+(BOOL | FLAG)
+.
+.P
+\fB\-\-file, \-f\fR
+.
+.P
+Runs a ISys Formatted File\. either ending in \.is, or \.isys\.
+.
+.P
+(STRING)
+.
+.P
+\fB\-\-verbose, \-v\fR
+.
+.P
+Prints information about the operations and functions run\.
+.
+.P
+(BOOL | FLAG)
+.
+.P
+\fB\-\-startup=FILE, \-s\fR
+.
+.P
+Runs a startup file before doing any operations\.
+.
+.P
+(STRING | FILE)
