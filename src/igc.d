@@ -25,7 +25,7 @@ RESERVED_EX return_generated_reserve(string str) {
   return RESERVED_EX.ISYS_IF;
  } else if (ls.key() == Reserved[2]) {
   return RESERVED_EX.ISYS_EXECUTE;
- } else if (ls.key() == Reserved[4]) {
+ } else if (ls.key().startsWith(Reserved[4])) {
   return RESERVED_EX.ISYS_COMMENT;
  } else {
   return RESERVED_EX.ISYS_NULL;
