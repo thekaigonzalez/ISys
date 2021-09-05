@@ -4,3 +4,5 @@ all:
 	dmd src/iif.d -lib -ofsrc/if.a
 	dmd src/igc.d -lib -ofsrc/gc.a
 	dmd src/iword.d -lib -ofsrc/word.a
+clean:
+	rm src/*.a
