@@ -3,6 +3,8 @@
 import std.stdio;
 import std.array;
 
+
+/* array state to capture arrays and do specific operations */
 class ArrayState
 {
 string[] array;
@@ -29,7 +31,7 @@ class Statement
 {
  string sstatement;
  public:
-  this(string st) {
+  this(string st) { /* initialize with a statement "obviously" */
    sstatement = st;
   }
   /* initialize a new statement from within an existing one */
@@ -42,7 +44,7 @@ class Statement
   }
 }
 
-class LexStatement
+class LexStatement /* Lexical statement that gets broken down into different words */
 {
  string statement; /* change: add current statement and do operations accordingly ? */
 
