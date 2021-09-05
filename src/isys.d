@@ -3,6 +3,6 @@
 import istate;
 import std.stdio;
 void main() {
- LexStatement ls = new LexStatement("PRINT hello");
+ LexStatement ls = new LexStatement("PRINT hello world");
  writeln(ls.next());
 }

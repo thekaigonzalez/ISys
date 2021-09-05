@@ -12,11 +12,15 @@ public:
   array = arr;
  }
 
+ string[] mulret() {
+  return array;
+ }
+
  string first() {
   return array[0];
  }
  string skip(int __iterator) {
-  return array[__iterator++];
+  return array[__iterator+1];
  }
 
 }
@@ -40,20 +44,20 @@ class Statement
 
 class LexStatement
 {
- string statement;
+ string statement; /* change: add current statement and do operations accordingly ? */
 
- Statement st = new Statement(statement);
-
- ArrayState as = new ArrayState(st.break_down);
-
- int current = 1; /* skip keyword */
+ int current = 0; /* skip keyword */
  public:
   this(string stt) {
    statement = stt;
   }
   string next() {
+   ArrayState as = new ArrayState(statement.split);
    return as.skip(current);
-   current += 1;
+  }
+  string current_word() {
+   ArrayState as = new ArrayState(statement.split);
+   return as.mulret()[current];
   }
 }
 
