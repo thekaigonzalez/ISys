@@ -12,6 +12,7 @@ import std.stdio;
 import ilex;
 import iword;
 import istring;
+import iif;
 import std.string;
 
 //save
@@ -45,5 +46,10 @@ void gc_machine(string abcdef) {
   StringState c = new StringState(ls);
 
   system(c.outString().toStringz());
+ }
+ else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_IF) {
+  // instead of starting a lexer, we start a boolstate.
+  BoolState bs = new BoolState(abcdef);
+  
  }
 }

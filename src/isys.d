@@ -1,7 +1,7 @@
 //The main interpreter for ISys
 
 import igc;
-
+import iif;
 import std.stdio;
 
 void repl() {
@@ -13,5 +13,6 @@ void repl() {
 }
 
 void main() {
- repl();
+ BoolState bs = new BoolState("IF a DO PRINT hello");
+ writeln(bs.condition());
 }

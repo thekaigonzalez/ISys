@@ -24,4 +24,14 @@ class LexState
   string[] self() {
    return state.self();
   }
+  /* collects the rest of a string starting at index "aat" */
+  string[] collect(int aat) {
+   string[] arr = state.self();
+   int i = 0;
+   while (i < aat) {
+    arr.remove(i);
+    i += 1;
+   }
+   return arr;
+  }
 }
