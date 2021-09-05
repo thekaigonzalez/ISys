@@ -4,6 +4,14 @@ import igc;
 
 import std.stdio;
 
+void repl() {
+ while (true) {
+  write(">");
+  string st = readln();
+  gc_machine(st);
+ }
+}
+
 void main() {
- gc_machine("PRINT hello world");
+ repl();
 }
