@@ -21,4 +21,7 @@ class LexState
    state.change_current(iter);
    return state.at(iter);
   }
+  string[] self() {
+   return state.self();
+  }
 }

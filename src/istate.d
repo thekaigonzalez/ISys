@@ -13,11 +13,16 @@ public:
  this(string[] arr) {
   array = arr;
  }
-
+ this(Statement st) {
+  array = st.break_down();
+ }
  string[] mulret() {
   return array;
  }
-
+ string Fat(int p)
+ {
+  return array[p];
+ }
  string first() {
   return array[0];
  }
@@ -46,26 +51,31 @@ class Statement
 
 class LexStatement /* Lexical statement that gets broken down into different words */
 {
- string statement; /* change: add current statement and do operations accordingly ? */
-
+ string statement = "NULL"; /* change: add current statement and do operations accordingly ? */
+ ArrayState as;
  int current = 0; /* skip keyword */
  public:
   this(string stt) {
    statement = stt;
+   as = new ArrayState(new Statement(stt));
   }
   void change_current(int num) {
    current = num;
   }
   string next() {
-   ArrayState as = new ArrayState(statement.split);
    return as.skip(current);
   }
   string current_word() {
-   ArrayState as = new ArrayState(statement.split);
    return as.mulret()[current];
   }
   string at(int pos) {
-   return statement.split[pos];
+   try {
+   return as.Fat(pos);
+   } catch (Exception e) { writeln("stdin: ' '");  }
+   return null;
+  }
+  string[] self() {
+   return as.mulret();
   }
 }
 
