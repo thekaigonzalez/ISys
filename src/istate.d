@@ -45,9 +45,15 @@ class LexStatement
  Statement st = new Statement(statement);
 
  ArrayState as = new ArrayState(st.break_down);
+
+ int current = 1; /* skip keyword */
  public:
   this(string stt) {
    statement = stt;
+  }
+  string next() {
+   return as.skip(current);
+   current += 1;
   }
 }
 
