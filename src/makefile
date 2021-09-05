@@ -1,6 +1,6 @@
 all:
-	dmd ilex.d -lib -oflex.a
 	dmd istate.d -lib -ofstate.a
+	dmd ilex.d state.a -lib -oflex.a
 	dmd iif.d -lib -ofif.a
 	dmd igc.d -lib -ofgc.a
 	dmd iword.d -lib -ofword.a
