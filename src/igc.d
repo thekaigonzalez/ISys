@@ -25,7 +25,7 @@ RESERVED_EX return_generated_reserve(string str) {
   return RESERVED_EX.ISYS_IF;
  } else if (ls.key() == Reserved[2]) {
   return RESERVED_EX.ISYS_EXECUTE;
- } else if (ls.key() == Reserved[3]) {
+ } else if (ls.key() == Reserved[4]) {
   return RESERVED_EX.ISYS_COMMENT;
  } else {
   return RESERVED_EX.ISYS_NULL;
@@ -62,5 +62,9 @@ void gc_machine(string abcdef) {
   BoolState bs = new BoolState(abcdef);
   if (bs.execute() == "NOTHING") { writeln("ISYS_NULL"); }
   else { gc_eval_machine(bs.execute()); }
+ } else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_COMMENT) {
+  writeln("");
+ }  else {
+  writeln("Error: Type not found: ISYS_"~abcdef.split()[0]~". ");
  }
 }
