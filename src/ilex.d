@@ -7,6 +7,7 @@ class LexState
 {
  string stat;
  LexStatement state;
+ int iter = 0;
  public:
   this(string statement) {
    stat = statement;
@@ -14,5 +15,10 @@ class LexState
   }
   string key() {
    return state.current_word();
+  }
+  string next() {
+   iter = iter + 1;
+   state.change_current(iter);
+   return state.at(iter);
   }
 }

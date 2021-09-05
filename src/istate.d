@@ -53,6 +53,9 @@ class LexStatement /* Lexical statement that gets broken down into different wor
   this(string stt) {
    statement = stt;
   }
+  void change_current(int num) {
+   current = num;
+  }
   string next() {
    ArrayState as = new ArrayState(statement.split);
    return as.skip(current);
@@ -60,6 +63,9 @@ class LexStatement /* Lexical statement that gets broken down into different wor
   string current_word() {
    ArrayState as = new ArrayState(statement.split);
    return as.mulret()[current];
+  }
+  string at(int pos) {
+   return statement.split[pos];
   }
 }
 
