@@ -11,6 +11,67 @@
 .SH "DESCRIPTION"
 ISys is a language originally oriented around building scalable, Make\-Like programming language to build real\-time build systems\. ISys is implemented in D\.
 .
+.P
+ISys has a very strict typing rule\.
+.
+.SS "strings"
+With strings, they are dynamic\. Strings are used without QUOTES and are assumed as strings\. There is no variable idea in ISys\.
+.
+.P
+You can use comments in strings by using the "**" operator and making sure to not use any spaces\.
+.
+.P
+Comments can be used without hassle in the programming language\.
+.
+.P
+The comment operator is "**"\.
+.
+.P
+Comment generation can be found in the igc\.d file\.
+.
+.SS "if statements"
+If statement syntax is like so\.
+.
+.P
+\fBIF (FUNCTION) DO (STAT)\fR
+.
+.P
+Where STAT is an expression such as PRINT, Execute, etc\|\.\|\.\|\.
+.
+.P
+IF statement source code can be found in the iif\.d file\.
+.
+.SS "keywords"
+Keywords currently are
+.
+.IP "\[ci]" 4
+PRINT
+.
+.IP "\[ci]" 4
+EXECUTE
+.
+.IP "" 0
+.
+.P
+Keywords give the interpreter basic things to do in your code\.
+.
+.SS "errors"
+D errors could be any of the following
+.
+.IP "\[ci]" 4
+Range Exceptions
+.
+.IP "\[ci]" 4
+NULL Exceptions
+.
+.IP "\[ci]" 4
+Any D exception
+.
+.IP "\[ci]" 4
+Syntatic error
+.
+.IP "" 0
+.
 .SS "options"
 \fB\-\-repl, \-r\fR
 .
