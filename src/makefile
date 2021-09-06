@@ -6,19 +6,24 @@ all:
 	dmd isys_copyright -lib -ofcopyright.a
 	dmd ifunction.d -lib -offunction.a
 	dmd istring.d -lib -ofstring.a
+	dmd ifile.d -lib -offile.a
+	dmd iinclude.d -lib -ofinclude.a
+	dmd ierr.d -lib -oferror.a
 	dmd igc.d lex.a word.a  -lib -ofgc.a
-	dmd isys.d word.a gc.a state.a if.a copyright.a function.a lex.a string.a -of../bin/ISys
+	dmd isys.d word.a gc.a state.a if.a include.a error.a file.a copyright.a function.a lex.a string.a -of../bin/ISys
 windows:
 	dmd istate.d -lib -ofstate.lib
 	dmd ilex.d state.lib -lib -oflex.lib
+	dmd ifile.d -lib -ofifile.lib
+	dmd ierr.d -lib -oferror.lib
+	dmd iinclude.d -lib -ofiinclude.lib
 	dmd iif.d -lib -ofif.lib
 	dmd iword.d -lib -ofword.lib
 	dmd isys_copyright -lib -ofcopyright.lib
 	dmd ifunction.d -lib -offunction.lib
 	dmd istring.d -lib -ofstring.lib
 	dmd igc.d lex.lib word.lib  -lib -ofgc.lib
-	dmd isys.d word.lib gc.lib state.lib if.lib copyright.lib function.lib lex.lib string.lib -of../bin/ISys.exe
-
+	dmd isys.d word.lib gc.lib state.lib if.lib  ifile.lib iinclude.lib ierr.lib  copyright.lib function.lib lex.lib string.lib -of../bin/ISys.exe
 
 clean:
 	rm src/*.a

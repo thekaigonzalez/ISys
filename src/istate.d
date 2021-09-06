@@ -66,7 +66,14 @@ class LexStatement /* Lexical statement that gets broken down into different wor
    return as.skip(current);
   }
   string current_word() {
+   try {
    return as.mulret()[current];
+   }
+   catch (Exception e) {
+    writeln("Something went out of range!");
+    writeln("dont worry, this is a compiler error. Please submit an issue on github.");
+    return "ERORR";
+   }
   }
   string at(int pos) {
    try {

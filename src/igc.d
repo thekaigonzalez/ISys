@@ -11,6 +11,7 @@ extern (C) int system(const char*);
 import std.stdio;
 import ilex;
 import iword;
+import iinclude;
 import istring;
 import iif;
 import std.string;
@@ -27,7 +28,8 @@ RESERVED_EX return_generated_reserve(string str) {
   return RESERVED_EX.ISYS_EXECUTE;
  } else if (ls.key().startsWith(Reserved[4])) {
   return RESERVED_EX.ISYS_COMMENT;
- } else {
+ } else if (ls.key() == Reserved[5]) { return RESERVED_EX.ISYS_INCLUDE; }
+ else {
   return RESERVED_EX.ISYS_NULL;
  }
  return RESERVED_EX.ISYS_NULL;
@@ -40,6 +42,12 @@ void gc_eval_machine(string abcdef)
   LexState ls = new LexState(abcdef);
   StringState c = new StringState(ls);
   writeln(c.outString());
+ } else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_INCLUDE) {
+  LexState ls = new LexState(abcdef);
+  StringState c = new StringState(ls);
+  string ipath = ls.next();
+  Include inc = new Include(ipath);
+  writeln(ipath);
  }
 }
 
@@ -60,11 +68,17 @@ void gc_machine(string abcdef) {
  else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_IF) {
   // instead of starting a lexer, we start a boolstate.
   BoolState bs = new BoolState(abcdef);
-  if (bs.execute() == "NOTHING") { writeln("ISYS_NULL"); }
+  if (bs.execute() == "NULL") { writeln("ISYS_NULL"); }
   else { gc_eval_machine(bs.execute()); }
  } else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_COMMENT) {
   writeln("");
- }  else {
+ }
+ else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_INCLUDE) {
+  LexState ls = new LexState(abcdef);
+  string ipath = ls.next();
+  Include inc = new Include(ipath);
+  inc.run_file();
+ } else {
   writeln("Error: Type not found: ISYS_"~abcdef.split()[0]~". ");
  }
 }
