@@ -2,6 +2,7 @@
 
 import igc;
 import iif;
+import iisolated;
 import iword;
 import std.stdio;
 import std.getopt;
@@ -40,10 +41,11 @@ void main(string[] args) {
  string startupfile = "none";
  bool verbose = false;
  bool repld = true;
+ bool test = false;
  string file = "none";
  try {
   getopt(args, std.getopt.config.bundling, "repl|r", &repld, "verbose|v", &verbose, "startup|s", &startupfile,
-  "file|f", &file);
+  "file|f", &file, "testes|t", &test);
  } catch (Exception e) {
   writeln("bad option");
  }
@@ -55,5 +57,9 @@ void main(string[] args) {
  }
  if (file != "none") {
   execute_file(file);
+ }
+ if (test) {
+  IsolatedState st = new IsolatedState("(PRINT hello) ** print");
+  st.run();
  }
 }
