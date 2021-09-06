@@ -27,7 +27,7 @@ windows:
 	dmd istring.d -lib -ofstring.lib
 	dmd igc.d lex.lib word.lib  -lib -ofgc.lib
 	dmd isys.d word.lib gc.lib state.lib if.lib iisolated.lib  ifile.lib iinclude.lib ierr.lib  copyright.lib function.lib lex.lib string.lib -of../bin/ISys.exe
-	dmd isysrun.d word.lib gc.lib state.lib if.lib isolated.lib include.lib error.lib file.lib copyright.lib function.lib lex.lib string.lib -of../bin/ISysRun.exe
+	dmd isysrun.d word.lib gc.lib state.lib if.lib iisolated.lib iinclude.lib error.lib ifile.lib copyright.lib function.lib lex.lib string.lib -of../bin/ISysRun.exe
 
 clean:
 	rm src/*.a
