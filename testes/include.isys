@@ -1,0 +1,9 @@
+** the #[include] macro is used for adding external files to your "main" ISYS file.
+
+** macros are minifiers of D code, and are mostly low-level.
+
+#[include] hello.isys
+
+** you can also use minifiers in ISOLATED statements. Like so:
+
+(#[include] hello.isys) ** doc line here

@@ -1,0 +1,5 @@
+** makefile-like editing is supported.
+
+PRINT which version of GCC should you be using?
+
+IF OS(Windows) DO PRINT You should be using MINGW-NT version.

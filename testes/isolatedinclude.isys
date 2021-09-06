@@ -1,0 +1,1 @@
+(#[include] ./hello.isys) ** includes and runs hello.isys

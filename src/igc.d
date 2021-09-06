@@ -11,6 +11,7 @@ extern (C) int system(const char*);
 import std.stdio;
 import ilex;
 import iword;
+import iisolated;
 import iinclude;
 import istring;
 import iif;
@@ -29,6 +30,7 @@ RESERVED_EX return_generated_reserve(string str) {
  } else if (ls.key().startsWith(Reserved[4])) {
   return RESERVED_EX.ISYS_COMMENT;
  } else if (ls.key() == Reserved[5]) { return RESERVED_EX.ISYS_INCLUDE; }
+ else if (ls.key().startsWith("(")) { return RESERVED_EX.ISYS_ISO; }
  else {
   return RESERVED_EX.ISYS_NULL;
  }
@@ -48,6 +50,9 @@ void gc_eval_machine(string abcdef)
   string ipath = ls.next();
   Include inc = new Include(ipath);
   writeln(ipath);
+ } else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_ISO) {
+  IsolatedState ist = new IsolatedState(abcdef);
+  ist.run();
  }
 }
 
@@ -78,6 +83,9 @@ void gc_machine(string abcdef) {
   string ipath = ls.next();
   Include inc = new Include(ipath);
   inc.run_file();
+ } else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_ISO) {
+  IsolatedState ist = new IsolatedState(abcdef);
+  ist.run();
  } else {
   writeln("Error: Type not found: ISYS_"~abcdef.split()[0]~". ");
  }

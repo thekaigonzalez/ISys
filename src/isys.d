@@ -14,11 +14,13 @@ void repl() {
  while (true) {
   write(">");
   string st = readln();
-  if (return_generated_reserve(st) == RESERVED_EX.ISYS_IF) {
-   BoolState bs = new BoolState(st);
-   gc_eval_machine(bs.execute());
-  } else {
-   gc_machine(st);
+  if (st != null) {
+   if (return_generated_reserve(st) == RESERVED_EX.ISYS_IF) {
+    BoolState bs = new BoolState(st);
+    gc_eval_machine(bs.execute());
+   } else {
+    gc_machine(st);
+   }
   }
  }
 }

@@ -24,6 +24,9 @@ public:
      BoolState state = new BoolState(line);
      gc_eval_machine(state.execute());
     } else if (return_generated_reserve(line) == RESERVED_EX.ISYS_COMMENT) { write(""); }
+   else {
+    gc_machine(line);
+   }
   }
  }
 
