@@ -35,7 +35,7 @@ RESERVED_EX return_generated_reserve(string str) {
 
 void gc_eval_machine(string abcdef)
 {
- if (abcdef == "NOTHING" || abcdef == "NULL") { writeln("Error @ gc_eval_machine():L: wrong evaluation"); }
+ if (abcdef == "NULL") { writeln("Error @ gc_eval_machine():L: wrong evaluation"); }
  else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_PRINT) {
   LexState ls = new LexState(abcdef);
   StringState c = new StringState(ls);
