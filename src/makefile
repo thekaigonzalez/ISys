@@ -9,15 +9,15 @@ all:
 	dmd igc.d lex.a word.a  -lib -ofgc.a
 	dmd isys.d word.a gc.a state.a if.a copyright.a function.a lex.a string.a -of../bin/ISys
 windows:
-	dmd istate.d -lib -ofstate.dll
-	dmd ilex.d state.dll -lib -oflex.dll
-	dmd iif.d -lib -ofif.dll
-	dmd iword.d -lib -ofword.dll
-	dmd isys_copyright -lib -ofcopyright.dll
-	dmd ifunction.d -lib -offunction.dll
-	dmd istring.d -lib -ofstring.dll
-	dmd igc.d lex.dll word.dll  -lib -ofgc.dll
-	dmd isys.d word.dll gc.dll state.dll if.dll copyright.dll function.dll lex.dll string.dll -of../bin/ISys.exe
+	dmd istate.d -lib -ofstate.lib
+	dmd ilex.d state.lib -lib -oflex.lib
+	dmd iif.d -lib -ofif.lib
+	dmd iword.d -lib -ofword.lib
+	dmd isys_copyright -lib -ofcopyright.lib
+	dmd ifunction.d -lib -offunction.lib
+	dmd istring.d -lib -ofstring.lib
+	dmd igc.d lex.lib word.lib  -lib -ofgc.lib
+	dmd isys.d word.lib gc.lib state.lib if.lib copyright.lib function.lib lex.lib string.lib -of../bin/ISys.exe
 
 
 clean:
