@@ -10,16 +10,16 @@ public:
  bool ret_func_data()
  {
 
-  if (Function == "OS(Windows_NT)")
+  if (Function == "Windows")
   {
    version(Windows) {
     return true;
    } else { return false; }
-  } else if (Function == "OS(Linux)") {
+  } else if (Function == "Linux") {
    version(linux) {
     return true;
    } else { return false; }
-  } else if (Function == "OS(MACH)") {
+  } else if (Function == "MAC") {
    version(OSX) {
     return true;
    } else { return false; }

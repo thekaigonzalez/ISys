@@ -12,6 +12,7 @@ all:
 	dmd ierr.d -lib -oferror.a
 	dmd igc.d lex.a word.a  -lib -ofgc.a
 	dmd isys.d word.a gc.a state.a if.a isolated.a include.a error.a file.a copyright.a function.a lex.a string.a -of../bin/ISys
+	dmd isysrun.d word.a gc.a state.a if.a isolated.a include.a file.a copyright.a function.a lex.a string.a -of../bin/ISysRun
 windows:
 	dmd istate.d -lib -ofstate.lib
 	dmd ilex.d state.lib -lib -oflex.lib
@@ -26,6 +27,7 @@ windows:
 	dmd istring.d -lib -ofstring.lib
 	dmd igc.d lex.lib word.lib  -lib -ofgc.lib
 	dmd isys.d word.lib gc.lib state.lib if.lib iisolated.lib  ifile.lib iinclude.lib ierr.lib  copyright.lib function.lib lex.lib string.lib -of../bin/ISys.exe
+	dmd isysrun.d word.dll gc.dll state.dll if.dll isolated.dll include.dll error.dll file.dll copyright.dll function.dll lex.dll string.dll -of../bin/ISysRun.exe
 
 clean:
 	rm src/*.a
