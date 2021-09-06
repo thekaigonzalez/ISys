@@ -17,7 +17,7 @@ windows:
 	dmd ifunction.d -lib -offunction.dll
 	dmd istring.d -lib -ofstring.dll
 	dmd igc.d lex.dll word.dll  -lib -ofgc.dll
-	dmd isys.d word.dll gc.dll state.dll if.dll copyright.dll function.dll lex.dll string>
+	dmd isys.d word.dll gc.dll state.dll if.dll copyright.dll function.dll lex.dll string.dll -of../bin/ISys.exe
 
 
 clean:
