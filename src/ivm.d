@@ -72,12 +72,6 @@ void ISys_Vsemi(string codes)
 {
  string abcdef = codes;
  bool errors = false;
- string[] prestate = abcdef.split("\n");
- foreach(string st; prestate) {
-  if (!st.endsWith(";") && st != " " && st != null) {
-   writeln("Error: "~st~": expected ';'");errors=true;
-  }
- }
  if (errors) {
   writeln("fatal errors detected. Exiting.");
  } else {

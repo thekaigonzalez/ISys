@@ -15,8 +15,8 @@ all:
 	dmd ierr.d -lib -oferror.a
 	dmd igc.d lex.a word.a  -lib -ofgc.a
 	dmd ifile.d gc.a -lib -offile.a
-	dmd isys.d word.a gc.a state.a if.a isolated.a include.a error.a file.a copyright.a function.a lex.a string.a vm.a -of../bin/ISys
-	dmd isysrun.d vm.a  word.a gc.a state.a if.a isolated.a include.a file.a copyright.a parse.a op.a runner.a vm.a  function.a lex.a string.a -of../bin/ISysRun
+	dmd isys.d word.a gc.a state.a if.a isolated.a include.a error.a file.a copyright.a function.a lex.a string.a vm.a -of../bin/isys
+	dmd isysrun.d vm.a  word.a gc.a state.a if.a isolated.a include.a file.a copyright.a parse.a op.a runner.a vm.a  function.a lex.a string.a -of../bin/isysrun
 libs:
 	dmd istate.d -lib -ofstate.a
 	dmd ilex.d state.a -lib -oflex.a
@@ -34,7 +34,7 @@ libs:
 	dmd ierr.d -lib -oferror.a
 	dmd igc.d lex.a word.a  -lib -ofgc.a
 	dmd ifile.d gc.a -lib -offile.a
-	dmd isysrun.d vm.a  word.a gc.a state.a if.a isolated.a include.a file.a copyright.a function.a lex.a string.a -of../bin/ISysRun
+	dmd isysrun.d vm.a  word.a gc.a state.a if.a isolated.a include.a file.a copyright.a function.a lex.a string.a -of../bin/isysRun
 
 windows:
 	dmd istate.d -lib -ofstate.lib
@@ -49,8 +49,8 @@ windows:
 	dmd ifunction.d -lib -offunction.lib
 	dmd istring.d -lib -ofstring.lib
 	dmd igc.d lex.lib word.lib  -lib -ofgc.lib
-	dmd isys.d word.lib gc.lib state.lib if.lib iisolated.lib  ifile.lib iinclude.lib ierr.lib  copyright.lib function.lib lex.lib string.lib -of../bin/ISys.exe
-	dmd isysrun.d word.lib gc.lib state.lib if.lib iisolated.lib iinclude.lib error.lib ifile.lib copyright.lib function.lib lex.lib string.lib -of../bin/ISysRun.exe
+	dmd isys.d word.lib gc.lib state.lib if.lib iisolated.lib  ifile.lib iinclude.lib ierr.lib  copyright.lib function.lib lex.lib string.lib -of../bin/isys.exe
+	dmd isysrun.d word.lib gc.lib state.lib if.lib iisolated.lib iinclude.lib error.lib ifile.lib copyright.lib function.lib lex.lib string.lib -of../bin/isysRun.exe
 
 clean:
 	rm src/*.a
