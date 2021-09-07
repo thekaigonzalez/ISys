@@ -1,0 +1,8 @@
+syntax isys "\.(isys|is)$"
+
+comment "**"
+
+color brightwhite "\<(PRINT|EXECUTE)\>"
+color brightgreen "\<(include|IF)\>"
+
+color green "\*\*.*"
