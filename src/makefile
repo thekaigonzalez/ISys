@@ -9,15 +9,33 @@ all:
 	dmd istring.d -lib -ofstring.a
 	dmd ivm.d -lib -ofvm.a
 	dmd iiop.d -lib -ofop.a
-
 	dmd irunner.d -lib -ofrunner.a
 	dmd iparse.d -lib -ofparse.a
-	dmd ifile.d -lib -offile.a
 	dmd iinclude.d -lib -ofinclude.a
 	dmd ierr.d -lib -oferror.a
 	dmd igc.d lex.a word.a  -lib -ofgc.a
-	dmd isys.d word.a gc.a state.a if.a isolated.a include.a error.a file.a copyright.a function.a lex.a string.a -of../bin/ISys
-	dmd isysrun.d word.a gc.a state.a if.a isolated.a include.a file.a copyright.a function.a lex.a string.a -of../bin/ISysRun
+	dmd ifile.d gc.a -lib -offile.a
+	dmd isys.d word.a gc.a state.a if.a isolated.a include.a error.a file.a copyright.a function.a lex.a string.a vm.a -of../bin/ISys
+	dmd isysrun.d vm.a  word.a gc.a state.a if.a isolated.a include.a file.a copyright.a parse.a op.a runner.a vm.a  function.a lex.a string.a -of../bin/ISysRun
+libs:
+	dmd istate.d -lib -ofstate.a
+	dmd ilex.d state.a -lib -oflex.a
+	dmd iisolated.d -lib -ofisolated.a
+	dmd iif.d -lib -ofif.a
+	dmd iword.d -lib -ofword.a
+	dmd isys_copyright -lib -ofcopyright.a
+	dmd ifunction.d -lib -offunction.a
+	dmd istring.d -lib -ofstring.a
+	dmd ivm.d -lib -ofvm.a
+	dmd iiop.d -lib -ofop.a
+	dmd irunner.d -lib -ofrunner.a
+	dmd iparse.d -lib -ofparse.a
+	dmd iinclude.d -lib -ofinclude.a
+	dmd ierr.d -lib -oferror.a
+	dmd igc.d lex.a word.a  -lib -ofgc.a
+	dmd ifile.d gc.a -lib -offile.a
+	dmd isysrun.d vm.a  word.a gc.a state.a if.a isolated.a include.a file.a copyright.a function.a lex.a string.a -of../bin/ISysRun
+
 windows:
 	dmd istate.d -lib -ofstate.lib
 	dmd ilex.d state.lib -lib -oflex.lib

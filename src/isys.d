@@ -1,5 +1,5 @@
 //The main interpreter for ISys
-
+import ivm;
 import igc;
 import iif;
 import iisolated;
@@ -17,9 +17,9 @@ void repl() {
   if (st != null) {
    if (return_generated_reserve(st) == RESERVED_EX.ISYS_IF) {
     BoolState bs = new BoolState(st);
-    gc_eval_machine(bs.execute());
+    ISys_Vsemi(bs.execute());
    } else {
-    gc_machine(st);
+    ISys_Vsemi(st);
    }
   }
  }
@@ -27,16 +27,18 @@ void repl() {
 
 void execute_file(string file)
 {
+ string runner = "";
  File f = File(file, "r");
  while (!f.eof()) {
   string line = f.readln();
   if (line != null && line.length != 1) {
    if (return_generated_reserve(line) == RESERVED_EX.ISYS_IF) {
     BoolState state = new BoolState(line);
-    gc_eval_machine(state.execute());
-   } else if (return_generated_reserve(line) == RESERVED_EX.ISYS_COMMENT) { write("");  } else { gc_machine(line); }
+    runner = runner~state.execute()~"\n";
+   } else if (return_generated_reserve(line) == RESERVED_EX.ISYS_COMMENT) { write("");  } else { runner = runner~line; }
   }
  }
+ writeln(runner);
 }
 
 void main(string[] args) {
