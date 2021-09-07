@@ -23,4 +23,7 @@ public:
    }
    return pub;
   }
+  string[] self() {
+  return l.self();
+  }
 }

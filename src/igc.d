@@ -37,7 +37,7 @@ RESERVED_EX return_generated_reserve(string str) {
  return RESERVED_EX.ISYS_NULL;
 }
 
-void gc_eval_machine(string abcdef)
+deprecated void gc_eval_machine(string abcdef)
 {
  if (abcdef == "NULL") { writeln("Error: NULL"); }
  else if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_PRINT) {
@@ -56,7 +56,7 @@ void gc_eval_machine(string abcdef)
  }
 }
 
-void gc_machine(string abcdef) {
+deprecated void gc_machine(string abcdef) {
  // insert a very bad attempt
  if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_PRINT) {
   LexState ls = new LexState(abcdef);

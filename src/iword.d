@@ -1,7 +1,7 @@
 // File for handling word extractions (keywords)
 
 string[] Reserved = [
-"PRINT", "IF", "EXECUTE", "NULL", "**", "#[include]"
+"PRINT", "IF", "EXECUTE", "NULL", "**", "#[include]", "#[no_parse]"
 ];
 
 enum RESERVED_EX {

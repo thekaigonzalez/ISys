@@ -7,6 +7,11 @@ all:
 	dmd isys_copyright -lib -ofcopyright.a
 	dmd ifunction.d -lib -offunction.a
 	dmd istring.d -lib -ofstring.a
+	dmd ivm.d -lib -ofvm.a
+	dmd iiop.d -lib -ofop.a
+
+	dmd irunner.d -lib -ofrunner.a
+	dmd iparse.d -lib -ofparse.a
 	dmd ifile.d -lib -offile.a
 	dmd iinclude.d -lib -ofinclude.a
 	dmd ierr.d -lib -oferror.a
