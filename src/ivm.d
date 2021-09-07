@@ -52,6 +52,7 @@ int ISys_Vexecute(string fstr) {
 	break;
   case RESERVED_EX.ISYS_COMMENT:
 	assert(1);
+	break;
   case RESERVED_EX.ISYS_INCLUDE:
 	LexState ls = new LexState(fstr);
 	string file = ls.next();
