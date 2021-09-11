@@ -20,6 +20,21 @@ void execute_file(string file)
  ISys_Vsemi(unew);
 }
 
+void inf_stdout() {
+ while (true) {
+  string line = readln();
+  ISys_Vsemi(line);
+ }
+}
+
 void main(string[] args) {
+ string file = "NONE";
+ for (int i = 1; i < args.length; i++) {
+  if (args[i] == "-") {
+   inf_stdout();
+  } else {
+   file = args[i];
+  }
+ }
  execute_file(args[1]);
 }
