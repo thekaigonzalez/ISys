@@ -54,3 +54,6 @@ windows:
 
 clean:
 	rm src/*.a
+install:
+	sudo cp ../bin/isys /usr/local/bin/isys
+	sudo cp ../bin/isysrun /usr/local/bin/isysrun
