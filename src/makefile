@@ -46,12 +46,13 @@ windows:
 	dmd iisolated.d -lib -ofiisolated.lib
 	dmd iif.d -lib -ofif.lib
 	dmd iword.d -lib -ofword.lib
+	dmd ivm.d -lib -ofvm.lib
 	dmd isys_copyright -lib -ofcopyright.lib
 	dmd ifunction.d -lib -offunction.lib
 	dmd istring.d -lib -ofstring.lib
 	dmd igc.d lex.lib word.lib  -lib -ofgc.lib
-	dmd isys.d word.lib gc.lib state.lib if.lib iisolated.lib  ifile.lib iinclude.lib error.lib  copyright.lib function.lib lex.lib string.lib -of../bin/isys.exe 
-	dmd isysrun.d word.lib gc.lib state.lib if.lib iisolated.lib iinclude.lib error.lib ifile.lib copyright.lib function.lib lex.lib string.lib -of../bin/isysRun.exe
+	dmd isys.d word.lib gc.lib state.lib if.lib iisolated.lib  ifile.lib iinclude.lib vm.lib error.lib  copyright.lib function.lib lex.lib string.lib -of../bin/isys.exe 
+	dmd isysrun.d word.lib gc.lib state.lib if.lib iisolated.lib iinclude.lib vm.lib error.lib ifile.lib copyright.lib function.lib lex.lib string.lib -of../bin/isysRun.exe
 
 clean:
 	rm src/*.a
