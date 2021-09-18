@@ -83,7 +83,7 @@ void ISys_Vsemi(string codes)
   string[] statements = abcdef.split(";");
   int curst = 0;
   foreach (string statement; statements) {
-   if (statement != null && statement.length > 1) {
+   if (statement != null && statement.length > 1 && return_generated_reserve(statement) != ISYS_COMMENT) {
     ISys_Vexecute(statement);
    }
   }
