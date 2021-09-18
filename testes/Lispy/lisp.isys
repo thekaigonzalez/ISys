@@ -1,0 +1,12 @@
+**Lisp Interface tests
+
+**ILisp (ISys Lisp) is a Syntax extension which brings the Syntax flexibility of other high-level programming languages.
+
+**Here's an example.
+
+(PRINT
+	ILisp is awesome!); ** Prints: "ILisp is awesome!";
+
+(PRINT
+	This is cool!; (PRINT
+				but this is better.););

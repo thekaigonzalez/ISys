@@ -1,0 +1,5 @@
+{
+	"name": "Lispy (A test for ISys Lisp (ILisp))",
+	"init": "",
+	"entry": "lisp.isys"
+}
