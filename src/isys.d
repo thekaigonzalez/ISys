@@ -15,16 +15,19 @@ void repl() {
   write(">");
   string st = readln();
   if (st != null) {
-   if (return_generated_reserve(st) == RESERVED_EX.ISYS_IF) {
-    BoolState bs = new BoolState(st);
-    ISys_Vsemi(bs.execute());
-   } else {
-    ISys_Vsemi(st);
-   }
+
+   if (return_generated_reserve(st) != RESERVED_EX.ISYS_COMMENT) {
+   	
+	if (return_generated_reserve(st) == RESERVED_EX.ISYS_IF) {
+    	BoolState bs = new BoolState(st);
+    	ISys_Vsemi(bs.execute());
+   	} else {
+    		ISys_Vsemi(st);
+  	}
+     }
   }
  }
 }
-
 void execute_file(string file)
 {
  string runner = "";

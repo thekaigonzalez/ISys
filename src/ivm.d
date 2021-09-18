@@ -45,6 +45,9 @@ int ISys_Vexecute(string fstr) {
 	IsolatedState iso = new IsolatedState(fstr);
 	iso.run();
 	break;
+  case RESERVED_EX.ISYS_SYNTERROR:
+	writeln("Syntax Error!");
+	break;
   case RESERVED_EX.ISYS_EXECUTE:
 	LexState ls = new LexState(fstr);
 	StringState ss = new StringState(ls);
@@ -72,6 +75,7 @@ int ISys_Vexecute(string fstr) {
 void ISys_Vsemi(string codes)
 {
  string abcdef = codes;
+ //Random Errors?
  bool errors = false;
  if (errors) {
   writeln("fatal errors detected. Exiting.");
@@ -85,6 +89,7 @@ void ISys_Vsemi(string codes)
   }
  }
 }
+
 
 // '\n' is just a character.
 // we can split everything by '\n' and turn it back into a string.
@@ -178,7 +183,13 @@ void ISys_Imanage(string entiret)
 // Executes an entire string (of file
 void ISys_Iexecfile(string filename) {
  File fname = File(filename, "r");
+ string str = "";
  while (!fname.eof()) {
   string line = fname.readln();
+  if (line != null && line.length > 0)
+  {
+	str = str~line;
+  }
  }
+ ISys_Vsemi(str);
 }

@@ -7,7 +7,7 @@ extern (C) int system(const char*);
 
 // Allow:
 // input code -> translated code
-
+import std.net.curl;
 import std.stdio;
 import ilex;
 import iword;
@@ -16,10 +16,10 @@ import iinclude;
 import istring;
 import iif;
 import std.string;
-
+import std.process;
 //save
-RESERVED_EX return_generated_reserve(string str) {
- // we're gonna create a lexical statement out of the string.
+RESERVED_EX return_generated_reserve(string str) { 
+// we're gonna create a lexical statement out of the string.
  LexState ls = new LexState(str);
  if (ls.key() == Reserved[0]) {
   return RESERVED_EX.ISYS_PRINT;

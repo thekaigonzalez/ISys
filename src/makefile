@@ -17,6 +17,7 @@ all:
 	dmd ifile.d gc.a -lib -offile.a
 	dmd isys.d word.a gc.a state.a if.a isolated.a include.a error.a file.a copyright.a function.a lex.a string.a vm.a -of../bin/isys
 	dmd isysrun.d vm.a  word.a gc.a state.a if.a isolated.a include.a file.a copyright.a parse.a op.a runner.a vm.a  function.a lex.a string.a -of../bin/isysrun
+	dmd ./imanager.d vm.a -of../bin/sypkg
 libs:
 	dmd istate.d -lib -ofstate.a
 	dmd ilex.d state.a -lib -oflex.a
