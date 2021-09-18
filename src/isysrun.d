@@ -12,17 +12,20 @@ void execute_file(string file)
   if (line != null && line.length != 1) {
 
    if (return_generated_reserve(line) != RESERVED_EX.ISYS_COMMENT) {
-   if (return_generated_reserve(line) == RESERVED_EX.ISYS_IF) {
-    BoolState state = new BoolState(line);
-    unew = unew~state.execute();
-   	}
+
+   	if (return_generated_reserve(line) == RESERVED_EX.ISYS_IF) {
+   	 BoolState state = new BoolState(line);
+   	 unew = unew~state.execute();
+   	} else {
    	unew = unew~line;
-  }
-}
-}
+	}
+	
+    }
+
+   }
+ }
  ISys_Vsemi(unew);
 }
-
 void inf_stdout() {
  while (true) {
   string line = readln();
