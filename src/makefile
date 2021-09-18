@@ -50,7 +50,7 @@ windows:
 	dmd ifunction.d -lib -offunction.lib
 	dmd istring.d -lib -ofstring.lib
 	dmd igc.d lex.lib word.lib  -lib -ofgc.lib
-	dmd isys.d word.lib gc.lib state.lib if.lib iisolated.lib  ifile.lib iinclude.lib ierr.lib  copyright.lib function.lib lex.lib string.lib -of../bin/isys.exe
+	dmd isys.d word.lib gc.lib state.lib if.lib iisolated.lib  ifile.lib iinclude.lib error.lib  copyright.lib function.lib lex.lib string.lib -of../bin/isys.exe 
 	dmd isysrun.d word.lib gc.lib state.lib if.lib iisolated.lib iinclude.lib error.lib ifile.lib copyright.lib function.lib lex.lib string.lib -of../bin/isysRun.exe
 
 clean:
