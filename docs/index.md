@@ -140,3 +140,6 @@ PRINT $ARGS
 
 ISys is licensed under the MIT license (Copyright (C) Kai Gonzalez)
 
+# Other Resources
+
+[Exploring the source Code](expl-src.md)
