@@ -10,7 +10,7 @@ all:
 	dmd ivm.d -lib -ofvm.a
 	dmd iiop.d -lib -ofop.a
 	dmd irunner.d -lib -ofrunner.a
-	dmd isystest.d iparse.d -of../bin/unittest
+	dmd isystest.d igc.d *.d ivm.d ilex.d iparse.d -of../bin/unittest
 	dmd iparse.d ilex.d iinclude.d igc.d -lib -ofparse.a
 	dmd iinclude.d -lib -ofinclude.a
 	dmd ierr.d -lib -oferror.a
