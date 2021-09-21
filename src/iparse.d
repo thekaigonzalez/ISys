@@ -73,15 +73,13 @@ float Isys_firstfloat(LexState ls)
 // checknumber(L, 3)
 // -1
 // all integer functions return -1 if not found, or if there was a conversion violation.
-int Isys_checknumber(LexState L, int pos)
+int Isys_nextnumber(LexState L)
 {
 	string num; // holder for conversion
+	
 	try {
-		for (int i = 1; i < pos; ++ i)
-		{
-			L.skip();
-		}
-		num = L.key(); /* key is a wrapper around current_word */
+		L.skip();
+		num = L.next();
 	} 
 	catch ( Exception e ) // range violation (most likely)
 	{
@@ -92,6 +90,7 @@ int Isys_checknumber(LexState L, int pos)
 	}
 	catch ( Exception e )
 	{
+		writeln(e);
 		return -1;
 	}
 	return 1; // ? nonexistant ?

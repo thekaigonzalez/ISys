@@ -15,6 +15,6 @@ class AdditionState {
 		int addint()
 		{
 			//ADD 1 2 = 3: print
-			
+			return 1;
 		}
 }
