@@ -7,4 +7,9 @@ TODO:
 - WARG (Global Arguments (unix))
 - MOV (int)
 - ISYS_VERSION (var)
-
+- _printf (raw C) (Compiled version only)
+- Create compiled edition
+- Compiled version inside main branch, has custom functions like _readln, _std,
+_raw, etc...
+- Add more features
+- Add more parsers
