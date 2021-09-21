@@ -136,6 +136,10 @@ PRINT $ARGS
 
 ```
 
+# Exploring the ISys type system
+
+[Here](expl-ists.md)
+
 # ISys Copyright
 
 ISys is licensed under the MIT license (Copyright (C) Kai Gonzalez)

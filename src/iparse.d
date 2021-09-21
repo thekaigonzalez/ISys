@@ -52,3 +52,36 @@ int Isys_firstnumber(LexState ls)
 		return -1;
 	}
 }
+
+float Isys_firstfloat(LexState ls)
+{
+	try {
+		return to!int(ls.next());
+	} catch ( Exception e )
+	{
+		return -1;
+	}
+}
+
+string Isys_firstword(LexState ls)
+{
+	try
+	{
+		return to!string(ls.next());
+	}
+	catch ( Exception e )
+	{
+		return "NULL ";
+	}
+}
+
+bool Isys_firstbool(LexState ls)
+{
+	try {
+		return to!bool(ls.next());
+	}
+	catch ( Exception e )
+	{
+		return false;
+	}
+}
