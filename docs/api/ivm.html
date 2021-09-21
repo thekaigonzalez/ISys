@@ -516,6 +516,212 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
+  <a href="#vevc" id="vevc"><code class="code">vevc</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="vevc"></span>int <code class="code">vevc</code>(int <code class="code">a</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    Does nothing..
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ISys_Vsmush" id="ISys_Vsmush"><code class="code">ISys_Vsmush</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ISys_Vsmush"></span>string <code class="code">ISys_Vsmush</code>(string[] <code class="code">arr</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    tokenizes <arr> into string and returns it.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ISys_Vexecute" id="ISys_Vexecute"><code class="code">ISys_Vexecute</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ISys_Vexecute"></span>int <code class="code">ISys_Vexecute</code>(string <code class="code">fstr</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    executes a code statement
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ISys_Vsemi" id="ISys_Vsemi"><code class="code">ISys_Vsemi</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ISys_Vsemi"></span>void <code class="code">ISys_Vsemi</code>(string <code class="code">codes</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    runs each statement separated by semicolons into the ISys_Vexecute function.
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#ISys_Iexeccode" id="ISys_Iexeccode"><code class="code">ISys_Iexeccode</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="ISys_Iexeccode"></span>void <code class="code">ISys_Iexeccode</code>(string <code class="code">codes</code>);
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    '\n' is just a character.
+we can split everything by '\n' and turn it back into a string.
+logic:
+PRINT
+hello
+IS
+PRINT hello
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
+  <a href="#LineIterator" id="LineIterator"><code class="code">LineIterator</code></a>
+</div>
+</div><div class="ddoc_decl">
+  <section class="section">
+    <div class="declaration">
+      <h4>Declaration</h4>
+      <div class="dlang">
+        <p class="para">
+          <code class="code">
+            <span class="ddoc_anchor" id="LineIterator"></span>class <code class="code">LineIterator</code>;
+
+          </code>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="ddoc_decl">
+  <section class="section ddoc_sections">
+  <div class="ddoc_summary">
+  <p class="para">
+    <code class="code">LineIterator</code> li = new <code class="code">LineIterator</code>("PRINT hello\nPRINT goodbye!");
+li.current_line() -- PRINT hello
+li.next() -- PRINT goodbye!
+li = new <code class="code">LineIterator</code>("(PRINT\nhello)")
+(PRINT
+hello)
+li.current_line() -- (PRINT
+li.next() -- hello)
+li.other() -- (PRINT hello)
+  </p>
+</div>
+
+</section>
+
+</div>
+
+</li><li class="ddoc_member">
+  <div class="ddoc_member_header">
+  <div class="ddoc_header_anchor">
   <a href="#ISys_Imanage" id="ISys_Imanage"><code class="code">ISys_Imanage</code></a>
 </div>
 </div><div class="ddoc_decl">
