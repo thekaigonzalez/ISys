@@ -36,7 +36,12 @@ RESERVED_EX return_generated_reserve(string str) {
  }
  
 }
-
+/**
+ * Evaluates ISys code to machine code
+ * PRINT hello
+ * ->
+ * writeln hello
+ */
 void gc_eval_machine(string abcdef)
 {
  if (abcdef == "NULL") { writeln("Error: NULL"); }
@@ -55,7 +60,11 @@ void gc_eval_machine(string abcdef)
   ist.run();
  }
 }
-
+/**
+ 
+  Does the same as gc_eval_machine but in a nested state.
+ 
+ **/
 void gc_machine(string abcdef) {
  // insert an attempt
  if (return_generated_reserve(abcdef) == RESERVED_EX.ISYS_PRINT) {
@@ -87,6 +96,6 @@ void gc_machine(string abcdef) {
   IsolatedState ist = new IsolatedState(abcdef);
   ist.run();
  } else {
-  writeln("Error: Type not found: ISYS_"~abcdef.split()[0]~". ");
+  writeln("Error: Enum not found (ISYS_NULL): ISYS_"~abcdef.split()[0]~". ");
  }
 }

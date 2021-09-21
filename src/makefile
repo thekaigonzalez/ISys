@@ -18,6 +18,7 @@ all:
 	dmd isys.d word.a gc.a state.a if.a isolated.a include.a error.a file.a copyright.a function.a lex.a string.a vm.a -of../bin/isys
 	dmd isysrun.d vm.a  word.a gc.a state.a if.a isolated.a include.a file.a copyright.a parse.a op.a runner.a vm.a  function.a lex.a string.a -of../bin/isysrun
 	dmd ./imanager.d error.a gc.a lex.a op.a file.a vm.a word.a gc.a string.a function.a state.a if.a isolated.a include.a file.a copyright.a -of../bin/sypkg
+
 libs:
 	dmd istate.d -lib -ofstate.a
 	dmd ilex.d state.a -lib -oflex.a
@@ -60,3 +61,8 @@ install:
 	sudo cp ../bin/isys /usr/local/bin/isys
 	sudo cp ../bin/sypkg /usr/local/bin/sypkg 
 	sudo cp ../bin/isysrun /usr/local/bin/isysrun
+webci:
+	dmd *.d -Dd../docs/api/ -lib
+	git add ../docs/
+	git commit -m "push webdoc"
+	git push

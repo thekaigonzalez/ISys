@@ -1,7 +1,9 @@
 import std.stdio;
 import igc;
 import iif;
+import ilex;
 import iword;
+import iparse;
 import ivm;
 void execute_file(string file)
 {
@@ -34,6 +36,8 @@ void inf_stdout() {
 }
 
 void main(string[] args) {
+ LexState ls = new LexState("PRINT \"hello world\"");
+ writeln(Isys_firstnumber(ls));
  string file = "NONE";
  for (int i = 1; i < args.length; i++) {
   if (args[i] == "-") {
