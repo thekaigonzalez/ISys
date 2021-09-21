@@ -4,6 +4,8 @@
 
 **Here's an example.
 
+#[include make.isys]
+
 (PRINT
 	ILisp is awesome!); ** Prints: "ILisp is awesome!";
 

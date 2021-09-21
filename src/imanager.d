@@ -5,6 +5,8 @@ import std.string;
 import std.algorithm;
 import std.file;
 import std.stdio;
+import std.net.curl;
+
 import ivm;
 //dmd 
 
@@ -22,10 +24,24 @@ void main(string[] args) {
 		JSONValue j = parseJSON(jsstring);
 		writeln("Name: "~j["name"].str);
 		system(j["init"].str.toStringz());
+		try {
+                        foreach( JSONValue gitproject ; j["deps"].array )
+                        {
+                                download(gitproject.str, "tmp.isys");
+                                writeln("Dependency found: "~gitproject.str);
+                                writeln("What would you like to name this dependency?");
+                                string n = readln();
+                                rename("tmp.isys", n);
+                        }
+                } catch (Exception e)
+                {
+                        //....
+                }
 		if (system(("isysrun "~j["entry"].str).toStringz()) == -1)
 		{
 			writeln("error: ISys is not installed.");
 			writeln("please install it using `gitstrap install ISys` or `git clone https://github.com/thekaigonzalez/ISys && cd ISys && make && sudo make install`");
 		}
+		
 	}
 }

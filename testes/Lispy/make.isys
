@@ -1,0 +1,3 @@
+** build - ISys wrapper for Makefile
+
+(EXECUTE make -C src)
