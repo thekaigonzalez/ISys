@@ -1,4 +1,10 @@
 TODO:
 
-- Fix Imanager.d
-- Fix comments (to not require ';')
+- add UPRINT (int, string)
+- add FPRINT (string, fmt ...)
+- BYTE (None)
+- UBYTE (None)
+- WARG (Global Arguments (unix))
+- MOV (int)
+- ISYS_VERSION (var)
+
