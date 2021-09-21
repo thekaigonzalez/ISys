@@ -10,7 +10,7 @@ all:
 	dmd ivm.d -lib -ofvm.a
 	dmd iiop.d -lib -ofop.a
 	dmd irunner.d -lib -ofrunner.a
-	dmd iparse.d -lib -ofparse.a
+	dmd iparse.d ilex.d iinclude.d igc.d -lib -ofparse.a
 	dmd iinclude.d -lib -ofinclude.a
 	dmd ierr.d -lib -oferror.a
 	dmd igc.d lex.a word.a  -lib -ofgc.a
