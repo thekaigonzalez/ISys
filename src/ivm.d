@@ -1,5 +1,5 @@
 extern (C) int system(const char*);
-//Virtual Machine for ISys
+///Virtual Machine for ISys
 import std.stdio;
 import std.file;
 import iiad;
@@ -9,20 +9,22 @@ import ilex;
 import iisolated;
 
 
-// igc.d was originally supposed to be the code executor.
-// this file will serve as a replacement for igc.d
+/// igc.d was originally supposed to be the code executor.
+/// this file will serve as a replacement for igc.d
 
 import iinclude;
 import igc;
 import iword;
 import istring;
 
+/// Does nothing..
 int vevc(int a)
 {
  if (a == 1) return 1;
  else return 0;
 }
 
+/// tokenizes <arr> into string and returns it.
 string ISys_Vsmush(string[] arr)
 {
  string saa;
@@ -33,7 +35,7 @@ string ISys_Vsmush(string[] arr)
 }
 
 
-
+/// executes a code statement
 int ISys_Vexecute(string fstr) {
  if (fstr != null && fstr.length > 0) {
  switch (return_generated_reserve(fstr)) {
@@ -75,7 +77,7 @@ int ISys_Vexecute(string fstr) {
  }
  return 1;
 }
-
+/// runs each statement separated by semicolons into the ISys_Vexecute function.
 void ISys_Vsemi(string codes)
 {
  string abcdef = codes;
@@ -95,14 +97,13 @@ void ISys_Vsemi(string codes)
 }
 
 
-// '\n' is just a character.
-// we can split everything by '\n' and turn it back into a string.
-
-// logic:
-// PRINT
-// hello
-// IS
-// PRINT hello
+/// '\n' is just a character.
+/// we can split everything by '\n' and turn it back into a string.
+/// logic:
+/// PRINT
+/// hello
+/// IS
+/// PRINT hello
 void ISys_Iexeccode(string codes) {
  string newstring;
  foreach(char tk; codes) {
@@ -114,16 +115,16 @@ void ISys_Iexeccode(string codes) {
  }
  gc_machine(newstring);
 }
-//LineIterator li = new LineIterator("PRINT hello\nPRINT goodbye!");
-// li.current_line() -- PRINT hello
-// li.next() -- PRINT goodbye!
-// li = new LineIterator("(PRINT\nhello)")
-//(PRINT
-//hello)
-//li.current_line() -- (PRINT
-// li.next() -- hello)
-// li.other() -- (PRINT hello)
-class LineIterator {
+/// LineIterator li = new LineIterator("PRINT hello\nPRINT goodbye!");
+/// li.current_line() -- PRINT hello
+/// li.next() -- PRINT goodbye!
+/// li = new LineIterator("(PRINT\nhello)")
+/// (PRINT
+/// hello)
+/// li.current_line() -- (PRINT
+/// li.next() -- hello)
+/// li.other() -- (PRINT hello)
+deprecated class LineIterator {
 string lsi;
 string[] lsep;
 int current=0;

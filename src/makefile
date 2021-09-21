@@ -27,7 +27,7 @@ install:
 	sudo cp ../bin/sypkg /usr/local/bin/sypkg 
 	sudo cp ../bin/isysrun /usr/local/bin/isysrun
 webci:
-	dmd *.d -Dd../docs/api/ -lib
+	dmd $(SRC) -Dd../docs/api/ -lib
 	git add ../docs/
 	git commit -m "push webdoc"
 	git push
