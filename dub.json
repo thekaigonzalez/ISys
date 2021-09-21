@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"bob"
+	],
+	"copyright": "Copyright © 2021, bob",
+	"description": "D language",
+	"license": "open source",
+	"name": "isys"
+}
