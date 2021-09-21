@@ -34,7 +34,7 @@ RESERVED_EX return_generated_reserve(string str) {
  else {
   return RESERVED_EX.ISYS_NULL;
  }
- return RESERVED_EX.ISYS_NULL;
+ 
 }
 
 void gc_eval_machine(string abcdef)
