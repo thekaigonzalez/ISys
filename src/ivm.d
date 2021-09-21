@@ -2,6 +2,7 @@ extern (C) int system(const char*);
 //Virtual Machine for ISys
 import std.stdio;
 import std.file;
+import iiad;
 import std.string;
 import iif;
 import ilex;
@@ -66,6 +67,8 @@ int ISys_Vexecute(string fstr) {
 	BoolState bs = new BoolState(fstr);
 	bs.execute();
 	break;
+  case RESERVED_EX.ISYS_ADD:
+	AdditionState as = new AdditionState(fstr);
   default: break;
  }
  }

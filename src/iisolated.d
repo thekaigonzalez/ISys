@@ -2,6 +2,7 @@
 
 import std.stdio;
 import igc;
+import ivm;
 // isolated statements are statements in which comments don't conflict with the
 // syntax of the expression.
 
@@ -26,6 +27,6 @@ public:
     expe = expe~c;
    }
   }
-  gc_machine(expe);
+  ISys_Vsemi(expe);
  }
 }

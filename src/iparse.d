@@ -63,6 +63,40 @@ float Isys_firstfloat(LexState ls)
 	}
 }
 
+//checks <LexState L> number at <pos> and returns it
+// example:
+// EX 1 2 hello world
+// checknumber(L, 1)
+// int 1
+// checknumber(L, 2)
+// int 2
+// checknumber(L, 3)
+// -1
+// all integer functions return -1 if not found, or if there was a conversion violation.
+int Isys_checknumber(LexState L, int pos)
+{
+	string num; // holder for conversion
+	try {
+		for (int i = 1; i < pos; ++ i)
+		{
+			L.skip();
+		}
+		num = L.key(); /* key is a wrapper around current_word */
+	} 
+	catch ( Exception e ) // range violation (most likely)
+	{
+		return -1;
+	}
+	try {
+		return to!int(num);
+	}
+	catch ( Exception e )
+	{
+		return -1;
+	}
+	return 1; // ? nonexistant ?
+}
+
 string Isys_firstword(LexState ls)
 {
 	try

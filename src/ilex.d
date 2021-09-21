@@ -25,6 +25,9 @@ class LexState
   string[] self() {
    return state.self();
   }
+  void skip() {
+	  iter = iter + 1;
+  }
   /* collects the rest of a string starting at index "aat" */
   string[] collect(int aat) {
    string[] arr = state.self();
