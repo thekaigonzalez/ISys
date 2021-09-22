@@ -42,7 +42,7 @@ void execute_file(string file)
    } else if (return_generated_reserve(line) == RESERVED_EX.ISYS_COMMENT) { write("");  } else { runner = runner~line; }
   }
  }
- writeln(runner);
+ ISys_dostring(runner);
 }
 
 void main(string[] args) {

@@ -4,11 +4,16 @@
 extern (C) int system(const char*);
 
 import std.string;
+import istdlib;
+
+import iarg;
 import igc;
+import istd;
 import iword;
 import ivm;
 import ilex;
 import ibyte;
+import std.conv;
 import std.stdio;
 import std.file;
 import iif;
@@ -59,22 +64,20 @@ void execute(string statement)
 	} else if (return_generated_reserve(statement) == RESERVED_EX.ISYS_UPRINT) {
 		BytePrinter bp = new BytePrinter(statement);
 		bp.print();
-	}
-       	else {
-
+	} else if (return_generated_reserve(statement) == RESERVED_EX.ISYS_LEN) {
 		///not builtin, instead function
-		FunctionHandler fh = new FunctionHandler(statement);
-		fh.run(new StringState(new LexState(statement)).outString());
-	}
-	
+		LengthMeter lm = new LengthMeter(statement);
+		writeln(lm.lencheck());
+	} else {
+		writeln(statement~"\n^^^^^^\nError: unknown function or keyword (--Eunfound-word 2203)");
+	}	
     }
 }
 
 void ISys_dostring(string st) {
 	string[] defs = st.split(";");
 	foreach (string def; defs) {
-		if (def.length > 1 && def != null) {
-			
+		if (def.length > 0 && def != null) {	
 			execute(def);
 		}
 	}
