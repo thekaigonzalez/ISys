@@ -34,6 +34,7 @@ RESERVED_EX return_generated_reserve(string str) {
  else if (ls.key() == "ADD") { return RESERVED_EX.ISYS_ADD; }
  else if (ls.key() == "UPRINT") { return RESERVED_EX.ISYS_UPRINT; }
  else if (ls.key() == "LEN") { return RESERVED_EX.ISYS_LEN; }
+ else if (ls.key() == "RPRINTF") { return RESERVED_EX.ISYS_RAW; }
  else {
   return RESERVED_EX.ISYS_NULL;
  }

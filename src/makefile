@@ -27,6 +27,9 @@ install:
 	sudo cp ../bin/isys /usr/local/bin/isys
 	sudo cp ../bin/sypkg /usr/local/bin/sypkg 
 	sudo cp ../bin/isysrun /usr/local/bin/isysrun
+
+
+
 webci:
 	dmd $(SRC) -Dd../docs/api/ -lib
 	git add ../docs/

@@ -36,7 +36,12 @@ void execute(string statement)
 	} 
 	else if (return_generated_reserve(statement) == RESERVED_EX.ISYS_NULL)
 	{
-		return;
+		Fstd fsfunc = new Fstd(statement);
+		if (fsfunc.runFunc() == -1) {
+			writeln("No such function (NULL)");
+		} else {
+			//con;
+		}
 	}
 	else if (return_generated_reserve(statement) == RESERVED_EX.ISYS_ISO)
 	{
@@ -68,6 +73,9 @@ void execute(string statement)
 		///not builtin, instead function
 		LengthMeter lm = new LengthMeter(statement);
 		writeln(lm.lencheck());
+	} else if (return_generated_reserve(statement) == RESERVED_EX.ISYS_RAW) {
+		RawPrinter rp = new RawPrinter(statement);
+		rp.print();
 	} else {
 		writeln(statement~"\n^^^^^^\nError: unknown function or keyword (--Eunfound-word 2203)");
 	}	

@@ -1,5 +1,8 @@
 import isyslib;
+import std.stdio;
 import iarg;
+import ilex;
+import istring;
 ///function library
 ///you can add custom functions to this library.
 ///Contains
@@ -51,3 +54,34 @@ class MemHandle {
 
 }
 
+///printer which parses '\n', '\r', '\b', variables, etc ...
+/// before:
+///MEMORY world world!
+/// **PRINT hello %world%**
+/// -> PRINT hello %world%
+/// after:
+/// **PRINT hello %world%
+/// PRINT hello world!
+class RawPrinter {
+	private:
+		string rstat;
+		LexState ls;
+		ArgState as;
+	public:
+		this (string s) {
+			rstat = s;
+		}
+		this (LexState l) {
+			ls = l;
+		}
+		this (ArgState sas) {
+			as = sas;
+		}
+		void print() {
+			string stp = new StringState(ls).outString();
+			string nstp;
+			foreach (char c; stp) {
+				writeln(c);
+			}
+		}
+}

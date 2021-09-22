@@ -27,10 +27,10 @@ class Fstd {
 		int runFunc() {
 			writeln(ls.key());
 			if (ls.key() == "LEN") {
-				writeln(as.checkdynstring(1).length);
+				writeln(as.checkdynstring(0).length);
 				return 1;
 			} else if (ls.key() == "REV") {
-				writeln(ISys_Vsmush(as.checkdynstring(1).split.reverse));
+				writeln(ISys_Vsmush(as.checkdynstring(0).split.reverse));
 				return 1;
 			} else {
 				return -1;
