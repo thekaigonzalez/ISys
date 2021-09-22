@@ -19,7 +19,7 @@ public:
    foreach (string key; l.self()) {
     /// only comment.
     /// fix 3: fix PRINT and other keywords not printing.
-    if (return_generated_reserve(key) != RESERVED_EX.ISYS_COMMENT) {
+    if (return_generated_reserve(key) != RESERVED_EX.ISYS_COMMENT && return_generated_reserve(key) == RESERVED_EX.ISYS_NULL) {
 	pub=pub~key~" ";
     }
    }

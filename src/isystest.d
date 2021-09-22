@@ -7,5 +7,5 @@ import iarg;
 import isyslib;
 
 void main() {
-	 execute("UPRINT 10 hello world");
+	 execute("PRINT hello world");
 }
