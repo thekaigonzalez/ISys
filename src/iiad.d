@@ -3,18 +3,29 @@
 import ivm;
 import igc;
 import iparse;
+import ilex;
+import iarg;
+import std.stdio;
+import std.file;
 
 class AdditionState {
 	private:
 		string st;
+		LexState ls;
 	public:
 		this(string stat)
 		{
 			st = stat;
+			ls = new LexState(st);
 		}
-		int addint()
+		this (LexState l) {
+			ls = l;
+		}
+		int add()
 		{
-			//ADD 1 2 = 3: print
-			return 1;
+			ArgState as = new ArgState(ls);
+			int one = as.checkNum();
+			int two = as.checkNum();
+			return one + two;
 		}
 }

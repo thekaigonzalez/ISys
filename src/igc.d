@@ -31,6 +31,8 @@ RESERVED_EX return_generated_reserve(string str) {
   return RESERVED_EX.ISYS_COMMENT;
  } else if (ls.key() == Reserved[5]) { return RESERVED_EX.ISYS_INCLUDE; }
  else if (ls.key().startsWith("(")) { return RESERVED_EX.ISYS_ISO; }
+ else if (ls.key() == "ADD") { return RESERVED_EX.ISYS_ADD; }
+ else if (ls.key() == "UPRINT") { return RESERVED_EX.ISYS_UPRINT; }
  else {
   return RESERVED_EX.ISYS_NULL;
  }

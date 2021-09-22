@@ -21,7 +21,11 @@ public:
  }
  string Fat(int p)
  {
-  return array[p];
+	 try {
+		return array[p];
+	 } catch ( Exception e ) {
+		 return "Error";
+	 }
  }
  string first() {
   return array[0];

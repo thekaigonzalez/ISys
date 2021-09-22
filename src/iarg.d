@@ -19,7 +19,7 @@ class ArgState
 	private:
 		string stat;
 		LexState ls;
-		int iter;
+		int iter = 1;
 	public:
 		this(string st)
 		{
@@ -45,6 +45,7 @@ class ArgState
 		}
 		///checkNum() - shifts the position and returns 
 		int checkNum() {
+			iter = iter + 1;
 			return to!int(ls.next());
 		}
 		/// move(int): Moves the iterator position by <shifts>
@@ -54,15 +55,29 @@ class ArgState
 		}
 		///checkword(): moves the iterator by 1 and returns the word before it.
 		string checkword() {
+			iter = iter + 1;
 			return to!string(ls.next());
 		}
 		///checkbool(): same as checkword() and checkNum()
 		bool checkbool() {
+			iter = iter + 1;
 			return to!bool(ls.next());
 		}
-		//...
+		///...
 		float checkfloat() {
 			return to!float(ls.next());
+		}
+		///returns a full string of contents
+		string checkdynstring(int ap) {
+			string str;
+			writeln(ls.key());
+			string strl = ls.next();
+			writeln(strl);
+			while (strl != null) {
+				str = str~strl~" ";
+				strl = ls.next();
+			}
+			return str;
 		}
 
 		

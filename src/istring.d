@@ -17,13 +17,15 @@ public:
   string outString() {
    string pub = "";
    foreach (string key; l.self()) {
-    if (return_generated_reserve(key) == RESERVED_EX.ISYS_NULL && return_generated_reserve(key) != RESERVED_EX.ISYS_COMMENT) {
+    /// only comment.
+    /// fix 3: fix PRINT and other keywords not printing.
+    if (return_generated_reserve(key) != RESERVED_EX.ISYS_COMMENT) {
 	pub=pub~key~" ";
     }
    }
    return pub;
   }
   string[] self() {
-  return l.self();
+  	return l.self();
   }
 }

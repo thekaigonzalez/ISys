@@ -25,8 +25,10 @@ class LexState
   string[] self() {
    return state.self();
   }
-  void skip() {
+  void skip() 
+  {
 	  iter = iter + 1;
+	  state.change_current(iter);
   }
   void setpos(int n) {
 	  iter = n;
