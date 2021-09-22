@@ -1,6 +1,7 @@
 //The main interpreter for ISys
 import ivm;
 import igc;
+import isyslib;
 import iif;
 import iisolated;
 import iword;
@@ -20,9 +21,9 @@ void repl() {
    	
 	if (return_generated_reserve(st) == RESERVED_EX.ISYS_IF) {
     	BoolState bs = new BoolState(st);
-    	ISys_Vsemi(bs.execute());
+    	ISys_dostring(bs.execute());
    	} else {
-    		ISys_Vsemi(st);
+    	ISys_dostring(st);
   	}
      }
   }

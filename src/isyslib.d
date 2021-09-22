@@ -66,3 +66,10 @@ void execute(string statement)
 		fh.run(new StringState(new LexState(statement)).outString());
 	}
 }
+
+void ISys_dostring(string st) {
+	string[] defs = st.split;
+	foreach (string def; defs) {
+		execute(def);
+	}
+}

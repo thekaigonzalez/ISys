@@ -3,6 +3,7 @@ import igc;
 import iif;
 import ilex;
 import iword;
+import isyslib;
 import iparse;
 import ivm;
 void execute_file(string file)
@@ -26,7 +27,7 @@ void execute_file(string file)
 
    }
  }
- ISys_Vsemi(unew);
+ ISys_dostring(unew);
 }
 void inf_stdout() {
  while (true) {
@@ -40,9 +41,15 @@ void main(string[] args) {
  for (int i = 1; i < args.length; i++) {
   if (args[i] == "-") {
    inf_stdout();
+  } else if (args[i] == "-e") {
+	ISys_dostring(args[i++]);
   } else {
-   file = args[i];
-  }
+	  if (args[i-1] != "-e") {
+		  file = args[i];
+  	}
  }
- execute_file(args[1]);
+}
+ if (file != "NONE") {
+  execute_file(args[1]);
+ }
 }
