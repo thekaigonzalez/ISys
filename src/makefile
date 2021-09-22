@@ -1,7 +1,7 @@
 OUTLIB=libisys.a
 FLAGS=-O -lib
 MAINFILE=isys.d 
-SRC=istate.d ifunchandler.d ibyte.d isyslib.d iloadlib.d iilocal.d istd.d iarg.d ilex.d iword.d iisolated.d ifunction.d iif.d istring.d ivm.d iiad.d iiop.d irunner.d iparse.d iinclude.d \
+SRC=istate.d ifunchandler.d ibyte.d isyslib.d iilocal.d istd.d iarg.d ilex.d iword.d iisolated.d ifunction.d iif.d istring.d ivm.d iiad.d iiop.d irunner.d iparse.d iinclude.d \
        ierr.d igc.d ifile.d isys_copyright.d 
 LNK=libisys.a
 OUTFILE=../bin/isys 
