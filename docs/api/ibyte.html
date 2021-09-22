@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>iarg</title>
+    <title>ibyte</title>
     <style type="text/css" media="screen">
       html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
       blockquote, pre, a, abbr, address, cite, code, del, dfn, em, figure,
@@ -508,7 +508,7 @@
   <body id="ddoc_main" class="ddoc dlang">
     <div class="content_wrapper">
       <article class="module">
-        <h1 class="module_name">iarg</h1>
+        <h1 class="module_name">ibyte</h1>
         <section id="module_content">
 <section class="section ddoc_module_members_section">
   <div class="ddoc_module_members">
@@ -516,7 +516,7 @@
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ArgState" id="ArgState"><code class="code">ArgState</code></a>
+  <a href="#BytePrinter" id="BytePrinter"><code class="code">BytePrinter</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -525,7 +525,7 @@
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ArgState"></span>class <code class="code">ArgState</code>;
+            <span class="ddoc_anchor" id="BytePrinter"></span>class <code class="code">BytePrinter</code>;
 
           </code>
         </p>
@@ -537,13 +537,21 @@
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    arghandler - Argument Handler
-"<code class="code">ArgState</code>"
-usage:
-<code class="code">ArgState</code> as = new <code class="code">ArgState</code>("PRINT hello, world!;")
-OR
-LexState ls = new LexState("PRINT hello, world!;")
-<code class="code">ArgState</code> as = new <code class="code">ArgState</code>(ls);
+    The default class for the <strong>Byte Printer</strong> function.
+
+<section class="code_listing">
+  <div class="code_sample">
+    <div class="dlang">
+      <ol class="code_lines">
+        <li><code class="code">
+UPRINT &lt;bytes&gt; &lt;string&gt;
+
+</code></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
   </p>
 </div>
 
@@ -552,7 +560,7 @@ LexState ls = new LexState("PRINT hello, world!;")
   <li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ArgState.static_type" id="ArgState.static_type"><code class="code">static_type</code></a>
+  <a href="#BytePrinter.get_bytes" id="BytePrinter.get_bytes"><code class="code">get_bytes</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -561,7 +569,7 @@ LexState ls = new LexState("PRINT hello, world!;")
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ArgState.static_type"></span>RESERVED_EX <code class="code">static_type</code>();
+            <span class="ddoc_anchor" id="BytePrinter.get_bytes"></span>int <code class="code">get_bytes</code>();
 
           </code>
         </p>
@@ -573,7 +581,7 @@ LexState ls = new LexState("PRINT hello, world!;")
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    <code class="code">static_type</code>() - ISYS_NULL | ISYS_PRINT ...
+    gets the first argument (bytes)
   </p>
 </div>
 
@@ -584,7 +592,7 @@ LexState ls = new LexState("PRINT hello, world!;")
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ArgState.checkNum" id="ArgState.checkNum"><code class="code">checkNum</code></a>
+  <a href="#BytePrinter.getstring" id="BytePrinter.getstring"><code class="code">getstring</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -593,7 +601,7 @@ LexState ls = new LexState("PRINT hello, world!;")
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ArgState.checkNum"></span>int <code class="code">checkNum</code>();
+            <span class="ddoc_anchor" id="BytePrinter.getstring"></span>string <code class="code">getstring</code>();
 
           </code>
         </p>
@@ -605,7 +613,7 @@ LexState ls = new LexState("PRINT hello, world!;")
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    <code class="code">checkNum</code>() - shifts the position and returns
+    gets the dynamic string after.
   </p>
 </div>
 
@@ -616,7 +624,7 @@ LexState ls = new LexState("PRINT hello, world!;")
 </li><li class="ddoc_member">
   <div class="ddoc_member_header">
   <div class="ddoc_header_anchor">
-  <a href="#ArgState.move" id="ArgState.move"><code class="code">move</code></a>
+  <a href="#BytePrinter.print" id="BytePrinter.print"><code class="code">print</code></a>
 </div>
 </div><div class="ddoc_decl">
   <section class="section">
@@ -625,7 +633,7 @@ LexState ls = new LexState("PRINT hello, world!;")
       <div class="dlang">
         <p class="para">
           <code class="code">
-            <span class="ddoc_anchor" id="ArgState.move"></span>void <code class="code">move</code>(int <code class="code">shifts</code>);
+            <span class="ddoc_anchor" id="BytePrinter.print"></span>void <code class="code">print</code>();
 
           </code>
         </p>
@@ -637,135 +645,7 @@ LexState ls = new LexState("PRINT hello, world!;")
   <section class="section ddoc_sections">
   <div class="ddoc_summary">
   <p class="para">
-    <code class="code">move</code>(int): Moves the iterator position by <shifts>
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArgState.checkword" id="ArgState.checkword"><code class="code">checkword</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArgState.checkword"></span>string <code class="code">checkword</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    <code class="code">checkword</code>(): moves the iterator by 1 and returns the word before it.
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArgState.checkbool" id="ArgState.checkbool"><code class="code">checkbool</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArgState.checkbool"></span>bool <code class="code">checkbool</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    <code class="code">checkbool</code>(): same as checkword() and checkNum()
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArgState.checkfloat" id="ArgState.checkfloat"><code class="code">checkfloat</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArgState.checkfloat"></span>float <code class="code">checkfloat</code>();
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    ...
-  </p>
-</div>
-
-</section>
-
-</div>
-
-</li><li class="ddoc_member">
-  <div class="ddoc_member_header">
-  <div class="ddoc_header_anchor">
-  <a href="#ArgState.checkdynstring" id="ArgState.checkdynstring"><code class="code">checkdynstring</code></a>
-</div>
-</div><div class="ddoc_decl">
-  <section class="section">
-    <div class="declaration">
-      <h4>Declaration</h4>
-      <div class="dlang">
-        <p class="para">
-          <code class="code">
-            <span class="ddoc_anchor" id="ArgState.checkdynstring"></span>string <code class="code">checkdynstring</code>(int <code class="code">ap</code>);
-
-          </code>
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-<div class="ddoc_decl">
-  <section class="section ddoc_sections">
-  <div class="ddoc_summary">
-  <p class="para">
-    returns a full string of contents
+    allocates the bytes and prints the string.
   </p>
 </div>
 
