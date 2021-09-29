@@ -2,8 +2,8 @@ TODO:
 
 add UPRINT (int, string): Done!
 - add FPRINT (string, fmt ...)
-- BYTE (None)
-- UBYTE (None)
+BYTE (INT): Done!
+- UBYTE (INT)
 - WARG (Global Arguments (unix))
 - MOV (int)
 - ISYS_VERSION (var)

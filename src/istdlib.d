@@ -79,8 +79,11 @@ class RawPrinter {
 		}
 		void print() {
 			string stp = new StringState(ls).outString();
-			string nstp;
+			//string nstp; fix3: no extra codes
 			foreach (char c; stp) {
+				if (c == '\\') {
+					
+				}
 				writeln(c);
 			}
 		}
