@@ -10,6 +10,7 @@
 (that's only some)
 
 ## Build Files
+
 The `IF`, `EXECUTE` and `OS` functions should aid you in creating quick build files for your applications.
 
 A simple build file would look like this.
@@ -29,9 +30,9 @@ And to have a buildfile project:
 ```json
 
 {
-	"name": "Build File for <project>",
-	"entry": "build.isys",
-	"init": ""
+ "name": "Build File for <project>",
+ "entry": "build.isys",
+ "init": ""
 }
 
 ```

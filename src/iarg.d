@@ -76,10 +76,10 @@ class ArgState
 			return to!float(ls.next());
 		}
 		///returns a full string of contents
-		string checkdynstring(string visor) {
+		string checkdynstring(string visor = "mnone") {
 			string ns;
 			foreach (string k; ls.self()) {
-				if (return_generated_reserve(k) == RESERVED_EX.ISYS_NULL && k != visor)
+				if (return_generated_reserve(k) == RESERVED_EX.ISYS_NULL)
 					ns = ns~k~" ";
 			}
 			return ns;

@@ -3,6 +3,7 @@
 import istate;
  /* need LexerStatement Class. */
 
+import std.stdio;
 import std.algorithm;
 import std.string;
 
@@ -26,6 +27,12 @@ class LexState
   this(string statement) {
    stat = statement;
    state = new LexStatement(stat);
+  }
+  string[] without(int befores) {
+    for (int i = 0; i < befores; ++ i) {
+      writeln(this.self()[i]);
+    }
+    return [];
   }
   /// return the current keyword.
   string key() {

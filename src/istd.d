@@ -21,6 +21,9 @@ bool[string] bmemory;
 ///float memory.
 string[float] fmemory;
 
+/// string memory
+string[string] smemory;
+
 import ilex;
 ///standard library
 
@@ -69,47 +72,57 @@ class Fstd {
 			} else if (ls.key() == "BOUND") {
 				///
 				string vname = as.checkword();
-				writeln(vname);
+				
 				///
 				string vtype = as.checkword();
-				writeln(vtype);
-				if (vtype == "boolean ") {
+				
+				if (vtype == "boolean") {
 					try {
 						///
 						bool vval = as.checkbool();
 
-						bmemory[vname] = vval; // write changes to Boolean Memory
+						bmemory[vtype] = vval; // write changes to Boolean Memory
 					}
 					catch (Exception e) {
-						writeln("Error: couldn't convert to boolean expression from 'BOUND'.\nD Console: "~to!string(e));
+						writeln("Error: couldn't convert to boolean expression from 'BOUND'. REMEMBER: 1-0 Doesn't count!");
 					}
 				}
 				return 1;
 			} else if (ls.key() == "DEL") {
 				/// DEL variable
 				/// DEL IF [boolean|integer|string|float] variable IS <value>
-				///
-				string vname = as.checkword();
-				if (vname == "IF") {
-					string vtype = as.checkword();
-					
-					string nvmame = as.checkword();
 
-					if (vtype == "boolean") {
+				string vkeuy = as.checkword();
+				
 
+				if (vkeuy == "boolean") {
+					string vnames = as.checkword();
+					if (vnames in bmemory) {
+						bmemory.remove(vnames);
+					} else  {
+						writeln("warning: tried to remove '"~vnames~"' but it wasn't found in boolean memory.");
 					}
-					return 1;
+				} else {
+
 				}
 				return 1;
 			} else if (ls.key() == "VPRINT") {
 				string vtype = as.checkword();
 				if (vtype == "boolean") {
 					string ttc = as.checkword();
-					writeln("checking for :"~ttc~": in array booolmem");
-					writeln(bmemory);
-					writeln(bmemory[ttc]);
-				}	
+					if (ttc in bmemory) {
+						writeln(bmemory[ttc]);
+					} else {
+						writeln("Warning: Variable "~ttc~" does not exist.");
+					}
+				}
 				return 1;
+			} else if (ls.key() == "DB") {
+				writeln(bmemory);
+				writeln(fmemory);
+				writeln(smemory);
+				writeln(imemory);
+				return 1;	
 			} else {
 				return -1;
 			}
