@@ -30,11 +30,12 @@ string pop(string[] arr) {
 
 int RunLuaExtension(string[] fulldata) {
     version(LUA_EXT_VERSION) {
-        string fname = fulldata.pop();
+        string fname = fulldata[0];
+        fulldata = fulldata.remove(0);
         const char* tfwd = ("/usr/include/isys/std/"~fname~".lua").toStringz();
-        if (CHECKLOAD(tfwd, ISys_Vsmush(fulldata).toStringz()) == -1) {
-            const char* tfw2d = ("/usr/include/isys/std/"~fname~".lua").toStringz();
-            if (CHECKLOAD(tfw2d, ISys_Vsmush(fulldata).toStringz()) == -1) {
+        if (CHECKLOAD(tfwd, ISys_Vsmush(fulldata).chop().toStringz()) == -1) {
+            const char* tfw2d = ("./"~fname~".lua").toStringz();
+            if (CHECKLOAD(tfw2d, ISys_Vsmush(fulldata).chop().toStringz()) == -1) {
                 return -1;
             } else {
                 return 0;
