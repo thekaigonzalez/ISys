@@ -115,6 +115,8 @@ Keywords
 
 ## Argument Handling: Functions
 
+(THIS SECTION IS DEPRECATED, PLEASE SEE [THIS](news/NewLuaExt.md) ARTICLE FOR UPDATED FUNCTION INFO)
+
 Arguments in Functions are a bit complex.
 They require `$ARGS` to be used.
 (as of 1.5) you can add this to any statement to import the arguments.
