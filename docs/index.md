@@ -101,7 +101,7 @@ Functions
 - More Stable
 - Feature-Addable (?)
 - Easy to modify
-- Source Code
+- Lua Source Code
 
 Keywords
 
