@@ -44,7 +44,7 @@ class Fstd {
 				/// memory
 				const int fmem = as.checkNum();
 				malloc(fmem);
-				return 1;	
+				return 1;
 			} else if (ls.key() == "DUMP") {
 				writeln(malloc(as.checkword().length));
 				return 1;

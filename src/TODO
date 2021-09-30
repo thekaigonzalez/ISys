@@ -3,9 +3,9 @@ TODO:
 add UPRINT (int, string): Done!
 - add FPRINT (string, fmt ...)
 BYTE (INT): Done!
-- UBYTE (INT)
+UBYTE (INT): Failed.
 - WARG (Global Arguments (unix))
-- MOV (int)
+MOV: cancelled
 - ISYS_VERSION (var)
 - _printf (raw C) (Compiled version only)
 - Create compiled edition

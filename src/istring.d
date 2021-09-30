@@ -13,7 +13,7 @@ public:
   this(LexState lex) {
    l = lex;
   }
-  /* remove keyword from a string */
+  /** remove keyword from a string */
   string outString() {
    string pub = "";
    foreach (string key; l.self()) {

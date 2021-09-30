@@ -70,7 +70,6 @@ class ArgState
 		///returns a full string of contents
 		string checkdynstring(int ap) {
 			string str;
-			writeln(ls.key());
 			string strl = ls.next();
 			writeln(strl);
 			while (strl != null) {
