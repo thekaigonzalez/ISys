@@ -73,10 +73,11 @@ class Fstd {
 					}
 				}
 			} else if (ls.key() == "DEL") {
-				string vname = as.chcekword();
+				string vname = as.checkword();
 				if (vname == "IF") {
 
 				}
+				return 1;
 			} else {
 				return -1;
 			}
