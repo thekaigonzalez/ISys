@@ -5,7 +5,7 @@ extern (C) int system(const char*);
 
 import std.string;
 import istdlib;
-
+import ilua;
 import iarg;
 import igc;
 import istd;
@@ -70,7 +70,9 @@ void execute(string statement)
 		} else {
 			Fstd fstd = new Fstd(new LexState(statement));
 			if (fstd.runFunc() == -1) {
-				writeln(statement~"\n^\nError: unknown function or keyword (--Eunfound-word 2203)");
+				if (RunLuaExtension(statement.split) == -1) {
+					writeln(statement~"\n^\nError: unknown function or keyword (--Eunfound-word 2203)");
+				}
 			}
 			
 		}	

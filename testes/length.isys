@@ -1,0 +1,4 @@
+(PRINT the length of this string should be 5.);
+
+(PRINT length is);
+(LEN hello);

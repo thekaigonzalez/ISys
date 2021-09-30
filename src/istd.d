@@ -50,7 +50,8 @@ class Fstd {
 		int runFunc() {
 			
 			if (ls.key() == "LEN") {
-				writeln(as.checkdynstring("LEN").length);
+				ulong len = as.checkdynstring("LEN").length;
+				writeln(len-1);
 				return 1;
 			} else if (ls.key() == "REV") {
 				writeln(ISys_Vsmush(as.checkdynstring("REV").split.reverse));
