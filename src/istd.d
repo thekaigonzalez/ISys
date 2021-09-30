@@ -9,7 +9,11 @@ import isyslib;
 import std.string;
 
 /// contains global variables
+string[] tnames;
 string[] glob;
+int[] imemory;
+bool[] bmemory;
+float[] fmemory;
 
 import ilex;
 ///standard library
@@ -35,10 +39,10 @@ class Fstd {
 		int runFunc() {
 			
 			if (ls.key() == "LEN") {
-				writeln(as.checkdynstring(1).length);
+				writeln(as.checkdynstring("LEN").length);
 				return 1;
 			} else if (ls.key() == "REV") {
-				writeln(ISys_Vsmush(as.checkdynstring(0).split.reverse));
+				writeln(ISys_Vsmush(as.checkdynstring("REV").split.reverse));
 				return 1;
 			} else if (ls.key() == "BYTE") {
 				/// memory
@@ -54,6 +58,25 @@ class Fstd {
         		.writeln;        // ...and print.
 
 				return 1;
+			} else if (ls.key() == "BOUND") {
+				string vname = as.checkword();
+				string vtype = as.checkword();
+				if (vtype == "boolean") {
+					try {
+						bool vval = as.checkbool();
+						tnames = tnames~vname;
+						bmemory = bmemory~vval; // write changes to Boolean Memory
+					}
+					catch (Exception e) {
+						tnames = tnames~vname;
+						bmemory = bmemory~null;
+					}
+				}
+			} else if (ls.key() == "DEL") {
+				string vname = as.chcekword();
+				if (vname == "IF") {
+
+				}
 			} else {
 				return -1;
 			}
