@@ -6,3 +6,5 @@ check:
 	@echo "		CI Success!"
 no_lua:
 	@make -C src no_lua
+helpers:
+	@make -C src helpers

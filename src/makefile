@@ -46,3 +46,7 @@ webci:
 	git add ../docs/
 	git commit -m "push webdoc"
 	git push
+
+helpers:
+	mkdir /usr/include/isys
+	mkdir /usr/include/isys/std
