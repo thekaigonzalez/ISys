@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+
+"""
+
+IANA: ISys Analyzer
+Gives you simple tips such as Isolations, Deprecations, and Statements.
+
+"""
+
+import pathlib
+import argparse
+from sys import flags
+
+parser = argparse.ArgumentParser("iana")
+
+parser.add_argument("FILE", type=str)
+parser.add_argument("-warnbleed", default=True, action='store_false')
+parser.add_argument("-warnisolated", default=True, action='store_false')
+
+args = parser.parse_args()
+
+file = open(args.FILE, "r")
+
+if pathlib.Path(args.FILE).exists():
+    llist = file.readlines()
+    for line in llist:
+        if line[len(line)-1] != ";":
+            if args.warnbleed:
+                print("Warning: did not use ';' at the end of statement. expect some bleeding through statements.")
+                print("Wrong token: " + line[len(line)-1])
+        if line[0] != "(":
+            if args.warnisolated:
+                print("Warning: It's a good practice to use isolated statements whenever possible.")
+else:
+    print("unable to analyze: file not found")
