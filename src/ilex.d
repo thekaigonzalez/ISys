@@ -2,7 +2,9 @@
 
 import istate;
  /* need LexerStatement Class. */
+
 import std.algorithm;
+import std.string;
 
 /**
 
@@ -33,6 +35,9 @@ class LexState
   string next() {
    iter = iter + 1;
    state.change_current(iter);
+   if (state.at(iter).endsWith(" ")) {
+     return state.at(iter).chop();
+   }
    return state.at(iter);
   }
   /// Return the entire array.
