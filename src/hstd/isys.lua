@@ -17,6 +17,7 @@ function lsplit(s, delimiter)
    
     local lns = lsplit(string, " ");
    
+---@diagnostic disable-next-line: lowercase-global
     i = 0
     
     for _,V in ipairs(lns) do
@@ -24,4 +25,12 @@ function lsplit(s, delimiter)
      i = i + 1
     end
     return tblt
+end
+
+function ISys_Vsmush(array)
+    local str = ""
+    for i in array do
+        str = str .. i
+    end
+    return str
 end

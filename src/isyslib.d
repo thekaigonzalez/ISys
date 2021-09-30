@@ -70,7 +70,7 @@ void execute(string statement)
 		} else {
 			Fstd fstd = new Fstd(new LexState(statement));
 			if (fstd.runFunc() == -1) {
-				if (RunLuaExtension(statement.split) == -1) {
+				if (RunLuaExtension(new LexState(statement).self()) == -1) {
 					writeln(statement~"\n^\nError: unknown function or keyword (--Eunfound-word 2203)");
 				}
 			}

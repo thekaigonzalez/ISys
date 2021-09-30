@@ -52,6 +52,6 @@ helpers:
 	mkdir /usr/include/isys/std
 
 std:
-	sudo mv istd/*.lua /usr/include/isys/std/
+	sudo cp istd/*.lua /usr/include/isys/std/
 extdev:
-	sudo mv hstd/*.lua /usr/lib/lua/5.4/
+	sudo cp hstd/*.lua /usr/lib/lua/5.4/

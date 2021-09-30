@@ -1,3 +1,0 @@
--- SPIC
--- Usage:
--- SPIC
