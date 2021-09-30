@@ -2,6 +2,7 @@
 
 import ivm;
 import std.conv;
+import std.getopt;
 import std.stdio;
 import ilex;
 import igc;
@@ -68,15 +69,13 @@ class ArgState
 			return to!float(ls.next());
 		}
 		///returns a full string of contents
-		string checkdynstring(int ap) {
-			string str;
-			string strl = ls.next();
-			writeln(strl);
-			while (strl != null) {
-				str = str~strl~" ";
-				strl = ls.next();
+		string checkdynstring(string visor) {
+			string ns;
+			foreach (string k; ls.self()) {
+				if (return_generated_reserve(k) == RESERVED_EX.ISYS_NULL && k != visor)
+					ns = ns~k~" ";
 			}
-			return str;
+			return ns;
 		}
 
 		
