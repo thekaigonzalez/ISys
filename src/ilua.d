@@ -29,11 +29,15 @@ string pop(string[] arr) {
 }
 
 int RunLuaExtension(string[] fulldata) {
-    string fname = fulldata.pop();
-    const char* tfwd = ("./"~fname~".lua").toStringz();
-    if (CHECKLOAD(tfwd, ISys_Vsmush(fulldata.remove(0)).toStringz()) == -1) {
-        return -1;
+    version(LUA_EXT_VERSION) {
+        string fname = fulldata.pop();
+        const char* tfwd = ("./"~fname~".lua").toStringz();
+        if (CHECKLOAD(tfwd, ISys_Vsmush(fulldata.remove(0)).toStringz()) == -1) {
+            return -1;
+        } else {
+            return 0;
+        }
     } else {
-        return 0;
+        return -1;
     }
 }
