@@ -22,6 +22,13 @@ class ArgState
 		LexState ls;
 		int iter = 1;
 	public:
+		/**
+
+		this() -> type info
+
+		This gets information About the string to be manipulated.
+
+		*/
 		this(string st)
 		{
 			///change 'stat' to 'st'

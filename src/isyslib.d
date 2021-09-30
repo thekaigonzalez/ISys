@@ -26,7 +26,7 @@ import iilocal;
 
 void execute(string statement)
 {
-	if (statement != null && statement.length > 0) {	
+	if (statement != null && statement.length > 1) {	
 		if (return_generated_reserve(statement) == RESERVED_EX.ISYS_PRINT)
 		{
 			LexState ls =new LexState(statement);
@@ -79,8 +79,9 @@ void execute(string statement)
 
 void ISys_dostring(string st) {
 	string[] defs = st.split(";");
+	
 	foreach (string def; defs) {
-		if (def.length > 0 && def != null) {	
+		if (def.length > 1 && def != null) {	
 			execute(def);
 		}
 	}

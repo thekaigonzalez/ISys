@@ -1,4 +1,6 @@
+/// Extern the C system() function. It's way better than the D version.
 extern (C) int system(const char*);
+
 import std.conv;
 import std.json;
 import std.string;
@@ -17,7 +19,8 @@ void main(string[] args) {
 		string jsstring;
 		File f = File("./isysproject.json", "r");
 		while (!f.eof) {
-			string fn = f.readln();
+			/// the read line.
+			immutable string fn = f.readln();
 			jsstring = jsstring~fn~"\n";
 		}
 		f.close();
@@ -40,7 +43,8 @@ void main(string[] args) {
 		if (system(("isysrun "~j["entry"].str).toStringz()) == -1)
 		{
 			writeln("error: ISys is not installed.");
-			writeln("please install it using `gitstrap install ISys` or `git clone https://github.com/thekaigonzalez/ISys && cd ISys && make && sudo make install`");
+			writeln("please install it using `gitstrap install ISys` or `git clone https://github.com/thekaigonzalez/ISys && 
+			cd ISys && make && sudo make install`");
 		}
 		
 	}

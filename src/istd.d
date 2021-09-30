@@ -7,13 +7,19 @@ import std.algorithm.mutation;
 import iarg;
 import isyslib;
 import std.string;
+import std.conv;
 
 /// contains global variables
-string[] tnames;
-string[] glob;
-int[] imemory;
-bool[] bmemory;
-float[] fmemory;
+/// (NOT NEEDED ANYMORE, USING ASSOC ARRAYS!)
+deprecated string[] tnames;
+///global types (deprecated)
+deprecated string[] glob;
+///integer memory.
+string[int] imemory;
+///boolean memory.
+bool[string] bmemory;
+///float memory.
+string[float] fmemory;
 
 import ilex;
 ///standard library
@@ -25,10 +31,12 @@ class Fstd {
 		LexState ls;
 		ArgState as;
 	public:
+	///
 		this(string state) {
 			ls = new LexState(state);
 			as = new ArgState(state);
 		}
+		///
 		this (LexState lp) {
 			ls = lp;
 			as = new ArgState(lp);
@@ -59,24 +67,48 @@ class Fstd {
 
 				return 1;
 			} else if (ls.key() == "BOUND") {
+				///
 				string vname = as.checkword();
+				writeln(vname);
+				///
 				string vtype = as.checkword();
-				if (vtype == "boolean") {
+				writeln(vtype);
+				if (vtype == "boolean ") {
 					try {
+						///
 						bool vval = as.checkbool();
-						tnames = tnames~vname;
-						bmemory = bmemory~vval; // write changes to Boolean Memory
+
+						bmemory[vname] = vval; // write changes to Boolean Memory
 					}
 					catch (Exception e) {
-						tnames = tnames~vname;
-						bmemory = bmemory~null;
+						writeln("Error: couldn't convert to boolean expression from 'BOUND'.\nD Console: "~to!string(e));
 					}
 				}
+				return 1;
 			} else if (ls.key() == "DEL") {
+				/// DEL variable
+				/// DEL IF [boolean|integer|string|float] variable IS <value>
+				///
 				string vname = as.checkword();
 				if (vname == "IF") {
+					string vtype = as.checkword();
+					
+					string nvmame = as.checkword();
+
+					if (vtype == "boolean") {
+
+					}
 					return 1;
 				}
+				return 1;
+			} else if (ls.key() == "VPRINT") {
+				string vtype = as.checkword();
+				if (vtype == "boolean") {
+					string ttc = as.checkword();
+					writeln("checking for :"~ttc~": in array booolmem");
+					writeln(bmemory);
+					writeln(bmemory[ttc]);
+				}	
 				return 1;
 			} else {
 				return -1;

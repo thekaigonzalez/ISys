@@ -21,7 +21,7 @@ class LengthMeter {
 		}
 		ulong lencheck() {
 			ArgState as = new ArgState(stat);
-			return as.checkdynstring(1).length;
+			return as.checkdynstring("LEN").length;
 		}
 }
 
@@ -37,7 +37,7 @@ class DoIf {
 			string fword = as.checkword();
 			if (fword == "_WIN32") {
 				version (Windows) {
-					string ftwo = as.checkdynstring(2);
+					string ftwo = as.checkdynstring("DOIF");
 					writeln(ftwo);
 				}
 			}	
