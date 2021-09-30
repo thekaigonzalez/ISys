@@ -75,7 +75,7 @@ class Fstd {
 			} else if (ls.key() == "DEL") {
 				string vname = as.checkword();
 				if (vname == "IF") {
-
+					return 1;
 				}
 				return 1;
 			} else {
