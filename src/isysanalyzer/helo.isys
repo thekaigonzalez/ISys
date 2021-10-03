@@ -1,1 +1,2 @@
-PRINT hello
+(PRINT hello);
+PRINT helloworld;
